@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="../static/script/rem.js"></script>
+    <script src="../static/js/rem.js"></script>
     <link rel="stylesheet" href="../static/css/weui.min.css">
     <style>
         body {
@@ -121,7 +121,7 @@
             top: .02rem;
         }
 
-        .subjectList ul li:first-child div {
+        .subjectList ul li.active div {
             background: url('../static/img/inicon .png')no-repeat;
             background-size: cover;
         }
@@ -184,7 +184,7 @@
         <span class="subject">报名科目:</span>
         <div class="subjectList">
             <ul>
-                <li>
+                <li class="active">
                     <div></div>基础知识
                 </li>
                 <li>
@@ -206,6 +206,10 @@
 
     <div><button class="next">下一步</button></div>
     <script src="../static/script/weui.min.js"></script>
+    <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+    <script>
+        
+    </script>
 </body>
 
 </html>

@@ -5,6 +5,8 @@ const del = require('del')
 // 引入后，plugins.uglify = require('gulp-uglify')
 const plugins = require('gulp-load-plugins')()
 
+
+
 // 对scss/less编译，压缩，输出css文件
 function css (cb) {
   src('./static/sass/*.scss')
@@ -44,6 +46,7 @@ function serve(cb){
   })
   cb()
 }
+
 exports.style = css
 exports.clean = clean
 exports.default = series([
