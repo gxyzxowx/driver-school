@@ -54,7 +54,7 @@
         }
 
         .Previous,
-        .next-step {
+        .payment {
             width: 2.88rem;
             height: .88rem;
             border: none;
@@ -62,7 +62,7 @@
             border-radius: .44rem;
         }
 
-        .next-step {
+        .payment {
             background: linear-gradient(90deg, rgba(106, 228, 233, 1), rgba(101, 207, 232, 1));
         }
 
@@ -134,18 +134,20 @@
             top: .02rem;
         }
 
-        .subjectList ul li:first-child div {
-            background: url('../static/img/inicon .png')no-repeat;
-            background-size: cover;
-        }
-
-        .subjectList ul li:nth-child(2) div,
-        .subjectList ul li:nth-child(3) div,
-        .subjectList ul li:nth-child(4) div {
+        .notselect {
             background: url('../static/img/unselect.png')no-repeat;
             background-size: cover;
         }
 
+        .select {
+            background: url('../static/img/inicon .png')no-repeat;
+            background-size: cover;
+        }
+
+        .unselect {
+            background: url('../static/img/unselect.png')no-repeat;
+            background-size: cover;
+        }
 
         .viplevel {
             margin-top: .1rem;
@@ -204,7 +206,6 @@
                 </li>
             </ul>
         </div>
-
         <div class="viplevel">
             <span>您选择的会员等级为：</span>
             <p>高级会员</p>
@@ -214,8 +215,60 @@
             <p>￥1398</p>
         </div>
     </div>
-    <div><button class="Previous">上一步</button><button class="next-step">确认付费</button></div>
+    <div><button class="Previous">上一步</button><button class="payment">确认付费</button></div>
     <script src="../static/script/weui.min.js"></script>
+    <script>
+        let oSubjectLis = document.querySelectorAll(".subjectList ul li"),
+            oSelectImgs = document.querySelectorAll(".subjectList ul div");
+        (function addlist() {
+            for (let i = 0; i < oSubjectLis.length; i++) {
+                if (i == 0) {
+                    oSelectImgs[0].classList.add("select")
+                }
+                else {
+                    oSelectImgs[i].classList.add('notselect')
+                }
+            }
+        })();
+        var judge1 = true;
+        var judge2 = true;
+        oSubjectLis[0].onclick = function () {
+            if (judge1) {
+                oSelectImgs[0].classList.remove("select");
+                oSelectImgs[0].classList.add("unselect");
+                judge1 = false;
+            }
+            else {
+                oSelectImgs[0].classList.remove("unselect");
+                oSelectImgs[0].classList.add("select");
+                judge1 = true;
+            }
+        }
+        for (let i = 1; i < oSubjectLis.length; i++) {
+            oSubjectLis[i].index = i
+            oSubjectLis[i].onclick = function () {
+                if (judge2) {
+                    oSelectImgs[this.index].classList.remove("unselect")
+                    oSelectImgs[this.index].classList.add("select");
+                    judge2 = false;
+                }
+                else {
+                    oSelectImgs[this.index].classList.remove("select")
+                    oSelectImgs[this.index].classList.add("unselect");
+                    judge2 = true;
+                }
+            }
+        }
+        let oPrevious = document.querySelector(".Previous"),
+            oPayment = document.querySelector(".payment");
+        oPrevious.onclick = function () {
+            window.location.href = "vipselect.html"
+        }
+        oPayment.onclick = function () {
+            window.location.href = "personalCenter.html"
+        }
+
+    </script>
 </body>
 
 </html>
