@@ -4,7 +4,7 @@ const reload = browserSync.reload
 const del = require('del')
 // 引入后，plugins.uglify = require('gulp-uglify')
 const plugins = require('gulp-load-plugins')()
-
+const proxyMiddleware = require('http-proxy-middleware');
 
 
 // 对scss/less编译，压缩，输出css文件
@@ -37,12 +37,24 @@ function clean (cb) {
 }
 
 
+var middleware = proxyMiddleware('/api', {
+  target: 'http://dp.yuchaosheng.com/',
+  changeOrigin: true,
+  pathRewrite: {
+  '^/api': ''
+  },
+  logLevel: 'debug'
+})
+
 // server任务
 function serve(cb){
   browserSync.init({
     serve:{
-      baseDir: './'
-    }
+      baseDir: './',
+      index:'./src/index.html', // 指定默认打开的文件
+      middleware:middleware
+  },
+  // port:8050
   })
   cb()
 }
