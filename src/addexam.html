@@ -118,11 +118,11 @@
         <p>新增考试</p>
     </div>
     <div class="listbar">
-        <ul>
-            <li>
-                <div></div>基础知识<span>50次</span><div></div>
+        <ul id="warp">
+            <li v-for="item in datalist" :key="item.id">
+                <div></div>{{item.name}}<span>{{item.num}}次</span><div></div>
             </li>
-            <li>
+            <!-- <li>
                 <div></div>专业知识<span>48次</span><div></div>
             </li>
             <li>
@@ -130,10 +130,40 @@
             </li>
             <li>
                 <div></div>专业实践能力<span>未开通</span><div></div>
-            </li>
+            </li> -->
         </ul>
     </div>
-    <script src="../static/script/weui.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <script>
+        var Vue = new Vue({
+            el: '#warp',
+            data: {
+                datalist: []
+            },
+            mounted: function(){
+                this.getData()
+            },
+            methods: {
+                getData: function(){
+                    var _this = this
+                    axios.get('/index/index/index/addExam', {})
+                    .then(function (rs) {
+                    // console.log(JSON.stringify(rs.data.data));
+                    var ret = rs.data
+                    if(ret.code === 0){
+                        _this.datalist = rs.data.data
+                    }
+                    
+                    })
+                    .catch(function (error) {
+                    console.log(error);
+                    });
+                }
+            }
+        })
+    </script>
 </body>
+
 
 </html>
