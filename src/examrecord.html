@@ -47,76 +47,16 @@
             width: .3rem;
             height: .3rem;
         }
-
-        .person_name {
-            width: 100%;
-            height: 2.8rem;
-            background: url('../static/img/top-bg.png') no-repeat;
-            background-size: cover;
-            position: relative;
-
-        }
-
-        .head {
-            width: 1.2rem;
-            height: 1.2rem;
-            background: url('../static/img/head.png') no-repeat;
-            background-size: cover;
-            position: absolute;
-            left: .25rem;
-            top: .8rem;
-        }
-
-        .name {
-            width: .75rem;
-            height: .34rem;
-            font-size: .36rem;
-            font-family: Source Han Sans CN;
-            font-weight: 500;
-            color: rgba(255, 251, 233, 1);
-            line-height: .28rem;
-            position: absolute;
-            left: 1.61rem;
-            top: 1.23rem;
-        }
-
-        .vipLevel {
-            width: 1.68rem;
-            height: .48rem;
-            background: url('../static/img/comm.png') no-repeat;
-            background-size: cover;
-            position: absolute;
-            right: .24rem;
-            top: 1.16rem;
-        }
-
-        .invitationbg {
-            width: 100%;
-            height: 1.9rem;
-            background: rgba(255, 255, 255, 1);
-            position: relative;
-        }
-
-        .invitation {
-            width: 7.02rem;
-            height: 1.52rem;
-            background: url('../static/img/invitation.png') no-repeat;
-            background-size: cover;
-            position: absolute;
-            top: .2rem;
-            left: .24rem;
-        }
-
         .listbar {
             height: 4.4rem;
             width: 100%;
-            margin-top: .1rem;
+            margin-top: .66rem;
         }
 
         .listbar ul li {
             height: .88rem;
             width: 100%;
-            line-height: .88rem;
+            line-height: .6rem;
             position: relative;
             text-indent: .72rem;
             font-size: .28rem;
@@ -134,31 +74,38 @@
             left: .24rem;
             top: .25rem;
         }
-
+/* 
         .listbar ul li:first-child div:first-child {
             background: url('../static/img/subject.png') no-repeat;
             background-size: cover;
-        }
-
+        } */
+/* 
         .listbar ul li:nth-child(2) div:first-child {
             background: url('../static/img/add.png') no-repeat;
             background-size: cover;
-        }
+        } */
 
-        .listbar ul li:nth-child(3) div:first-child {
+         .listbar ul li div:first-child {
             background: url('../static/img/history.png') no-repeat;
             background-size: cover;
         }
 
-        .listbar ul li:nth-child(4) div:first-child {
+    /*    .listbar ul li:nth-child(4) div:first-child {
             background: url('../static/img/-record.png') no-repeat;
             background-size: cover;
         }
-
         .listbar ul li:nth-child(5) div:first-child {
-            background: url('../static/img/star.png') no-repeat;
+            background: url('../static/img/history.png') no-repeat;
             background-size: cover;
         }
+        .listbar ul li:nth-child(6) div:first-child {
+            background: url('../static/img/history.png') no-repeat;
+            background-size: cover;
+        }
+        .listbar ul li:nth-child(7) div:first-child {
+            background: url('../static/img/history.png') no-repeat;
+            background-size: cover;
+        } */
 
         .listbar ul li div:last-child {
             height: .2rem;
@@ -169,38 +116,54 @@
             right: .2rem;
             bottom: .34rem;
         }
+        /* .listbar ul li span:nth-child(3){
+            position: absolute;
+            right: .6rem;
+            bottom: 0rem;
+        } */
+        .listbar ul li p{
+            position: absolute;
+            left: 0;
+            bottom: -.1rem;
+            font-size: .24rem;
+            opacity: .8;
+        }
+        .listbar ul li div{
+            position: absolute;
+            right: .6rem;
+            bottom: .15rem;
+        }
     </style>
 </head>
 
 <body>
     <div class="StatusBar"></div>
     <div class="top"><span></span>
-        <p>个人中心</p>
+        <p>考试记录</p>
     </div>
-    <div class="person_name">
-        <div class="head"></div>
-        <div class="name">姓名</div>
-        <div class="vipLevel"></div>
-    </div>
-    <div class="invitationbg">
-        <div class="invitation"></div>
-    </div>
+   
     <div class="listbar">
         <ul>
             <li>
-                <div></div>我的科目<div></div>
+                <div></div><span>基础知识1212</span><p>2019-12-12&nbsp;&nbsp;10:10:10</p><div>84分</div><div></div>
             </li>
             <li>
-                <div></div>新增考试<div></div>
+                <div></div><span>基础知识1211</span><p>2019-12-11&nbsp;&nbsp;9:10:10</p><div>88分</div><div></div>
             </li>
             <li>
-                <div></div>历年真题<div></div>
+                <div></div><span>基础知识1210</span><p>2019-12-10&nbsp;&nbsp;8:10:10</p><div class="comeon">继续答题</div><div></div>
             </li>
             <li>
-                <div></div>考试记录<div></div>
+                <div></div><span>基础知识1209</span><p>2019-12-9&nbsp;&nbsp;7:10:10</p><div>45分</div><div></div>
             </li>
             <li>
-                <div></div>星星兑换<div></div>
+                <div></div><span>基础知识-2019真题1208</span><p>2019-12-8&nbsp;&nbsp;6:10:10</p><div>继续答题</div><div></div>
+            </li>
+            <li>
+                <div></div><span>基础知识1207</span><p>2019-12-7&nbsp;&nbsp;5:10:10</p><div>45分</div><div></div>
+            </li>
+            <li>
+                <div></div><span>基础知识1206</span><p>2019-12-6&nbsp;&nbsp;4:10:10</p><div>76分</div><div></div>
             </li>
         </ul>
     </div>

@@ -1,0 +1,117 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../static/script/rem.js"></script>
+    <link rel="stylesheet" href="../static/css/weui.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: .26rem;
+            background: rgba(247, 247, 247, 1);
+            font-family: Source Han Sans CN;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .StatusBar {
+            height: .4rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .top {
+            height: .88rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+            text-align: center;
+            line-height: .88rem;
+            position: relative;
+            font-size: .36rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        .top span {
+            position: absolute;
+            left: .17rem;
+            bottom: .3rem;
+            font-weight: bolder;
+            background: url('../static/img/nav_ico_back.png') no-repeat;
+            background-size: cover;
+            width: .3rem;
+            height: .3rem;
+        }
+        .basicknowledge{
+            font-size: .34rem;
+            margin-top: .7rem;
+            margin-left: .6rem;
+        }
+        .remainingtimes{
+            margin-top: .4rem;
+            font-size: .32rem;
+            margin-left: .6rem;
+        }
+        .jointimes{
+            margin-top: .4rem;
+            font-size: .32rem;
+            margin-left: .6rem; 
+        }
+        .jointimes p button{
+            width: .6rem;
+            height: .6rem;
+            font-size: .32rem;
+            line-height: .6rem;
+            border: none;
+            background: rgb(241, 234, 234);
+            border-radius: .1rem;
+        }
+        .times{
+            width:1rem;
+            height: .5rem;
+            background: rgb(241, 234, 234);
+            text-align: center;
+            margin: 0 .03rem;
+            border: none;
+
+        }
+        .joinprice{
+            margin-top: .4rem;
+            font-size: .32rem;
+            margin-left: .6rem; 
+        }
+        .surePay{
+            width: 2.8rem;
+            height:.8rem;
+            margin-top: 4.2rem;
+            margin-left: 2.5rem;
+            border: none;
+            font-size: .34rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="StatusBar"></div>
+    <div class="top"><span></span>
+        <p>充值次数</p>
+    </div>
+    <p class="basicknowledge">基础知识</p>
+    <p class="remainingtimes">剩余次数：<span>50</span>次</p>
+    <div class="jointimes"><p>充值次数：<button>-</button><input class="times" value="1"><button>+</button></p></div>
+    <p class="joinprice">充值费用：<span>6</span>元</p>
+
+    <button class="surePay">确认支付</button>
+    
+    <script src="../static/script/weui.min.js"></script>
+</body>
+
+</html>

@@ -13,14 +13,17 @@
             font-size: .28rem;
             background: rgba(247, 247, 247, 1);
         }
-        ul{
+
+        ul {
             list-style: none;
         }
+
         .StatusBar {
             height: .4rem;
             width: 100%;
             background: rgba(255, 255, 255, 1);
         }
+
         .top {
             height: .88rem;
             font-weight: 549;
@@ -30,7 +33,9 @@
             text-align: center;
             line-height: .88rem;
             position: relative;
+            color: rgba(51, 51, 51, 1);
         }
+
         .top span {
             position: absolute;
             left: .24rem;
@@ -40,24 +45,28 @@
             background-size: cover;
             width: .15rem;
             height: .28rem;
-        }       
+        }
+
         .Previous {
             margin: .52rem;
             background: linear-gradient(90deg, rgba(191, 191, 191, 1), rgba(210, 212, 212, 1));
             margin-top: 3.16rem;
         }
-        .Previous,.next-step{
+
+        .Previous,
+        .next-step {
             width: 2.88rem;
-            height: .88rem;  
-            border: none;  
-            color: #FFFFFF;   
-            border-radius: .44rem;     
+            height: .88rem;
+            border: none;
+            color: #FFFFFF;
+            border-radius: .44rem;
         }
+
         .next-step {
             background: linear-gradient(90deg, rgba(106, 228, 233, 1), rgba(101, 207, 232, 1));
         }
-      
-      
+
+
         .content {
             width: 6.9rem;
             height: 7.3rem;
@@ -67,6 +76,7 @@
             margin: .2rem auto 0;
             position: relative;
         }
+
         .name {
             height: .99rem;
             width: 100%;
@@ -76,20 +86,23 @@
             color: rgba(102, 102, 102, 1);
             border-bottom: solid .01rem rgba(238, 238, 238, 1);
         }
+
         .name span {
             font-size: .28rem;
             color: rgba(51, 51, 51, .6);
         }
+
         .selectednum {
             text-indent: .24rem;
             height: .85rem;
             line-height: 1rem;
             width: 100%;
-font-size:.3rem;
-font-family:Source Han Sans CN;
-font-weight:400;
-color:rgba(102,102,102,1);
+            font-size: .3rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(102, 102, 102, 1);
         }
+
         .subject {
             padding-left: .23rem;
             width: 1.3rem;
@@ -99,6 +112,7 @@ color:rgba(102,102,102,1);
             font-weight: 400;
             color: rgba(102, 102, 102, 1);
         }
+
         .subjectList ul li {
             height: .31rem;
             margin-bottom: .31rem;
@@ -111,6 +125,7 @@ color:rgba(102,102,102,1);
             position: relative;
             text-indent: 2.25rem;
         }
+
         .subjectList ul li div {
             width: .3rem;
             height: .3rem;
@@ -118,7 +133,7 @@ color:rgba(102,102,102,1);
             left: 1.84rem;
             top: .02rem;
         }
-        
+
         .subjectList ul li:first-child div {
             background: url('../static/img/inicon .png')no-repeat;
             background-size: cover;
@@ -138,18 +153,21 @@ color:rgba(102,102,102,1);
             border-bottom: solid .01rem rgba(238, 238, 238, 1);
             border-top: solid .01rem rgba(238, 238, 238, 1);
         }
+
         .viplevel p {
             margin-left: 1.84rem;
             color: rgba(51, 51, 51, 1);
             font-size: .3rem;
             margin-top: -.18rem;
         }
+
         .cost p {
             margin-left: 1.84rem;
             color: rgba(51, 51, 51, 1);
             font-size: .3rem;
             margin-top: -.15rem;
         }
+
         .viplevel span,
         .cost span {
             margin-left: .24rem;
@@ -160,6 +178,7 @@ color:rgba(102,102,102,1);
         }
     </style>
 </head>
+
 <body>
     <div class="StatusBar"></div>
     <div class="top"><span></span>
@@ -168,7 +187,7 @@ color:rgba(102,102,102,1);
     <div class="content">
         <p class="name">尊敬的：<span>王某某</span></p>
         <p class="selectednum">您选择了<span>2</span>个科目：</p>
- 
+
         <div class="subjectList">
             <ul>
                 <li>
@@ -185,7 +204,7 @@ color:rgba(102,102,102,1);
                 </li>
             </ul>
         </div>
-        
+
         <div class="viplevel">
             <span>您选择的会员等级为：</span>
             <p>高级会员</p>
@@ -195,7 +214,8 @@ color:rgba(102,102,102,1);
             <p>￥1398</p>
         </div>
     </div>
-    <div><button class="Previous">上一步</button><button class="next-step">下一步</button></div>
+    <div><button class="Previous">上一步</button><button class="next-step">确认付费</button></div>
     <script src="../static/script/weui.min.js"></script>
 </body>
+
 </html>

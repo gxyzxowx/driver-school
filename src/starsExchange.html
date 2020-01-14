@@ -47,70 +47,10 @@
             width: .3rem;
             height: .3rem;
         }
-
-        .person_name {
-            width: 100%;
-            height: 2.8rem;
-            background: url('../static/img/top-bg.png') no-repeat;
-            background-size: cover;
-            position: relative;
-
-        }
-
-        .head {
-            width: 1.2rem;
-            height: 1.2rem;
-            background: url('../static/img/head.png') no-repeat;
-            background-size: cover;
-            position: absolute;
-            left: .25rem;
-            top: .8rem;
-        }
-
-        .name {
-            width: .75rem;
-            height: .34rem;
-            font-size: .36rem;
-            font-family: Source Han Sans CN;
-            font-weight: 500;
-            color: rgba(255, 251, 233, 1);
-            line-height: .28rem;
-            position: absolute;
-            left: 1.61rem;
-            top: 1.23rem;
-        }
-
-        .vipLevel {
-            width: 1.68rem;
-            height: .48rem;
-            background: url('../static/img/comm.png') no-repeat;
-            background-size: cover;
-            position: absolute;
-            right: .24rem;
-            top: 1.16rem;
-        }
-
-        .invitationbg {
-            width: 100%;
-            height: 1.9rem;
-            background: rgba(255, 255, 255, 1);
-            position: relative;
-        }
-
-        .invitation {
-            width: 7.02rem;
-            height: 1.52rem;
-            background: url('../static/img/invitation.png') no-repeat;
-            background-size: cover;
-            position: absolute;
-            top: .2rem;
-            left: .24rem;
-        }
-
         .listbar {
             height: 4.4rem;
             width: 100%;
-            margin-top: .1rem;
+            margin-top: .6rem;
         }
 
         .listbar ul li {
@@ -155,11 +95,6 @@
             background-size: cover;
         }
 
-        .listbar ul li:nth-child(5) div:first-child {
-            background: url('../static/img/star.png') no-repeat;
-            background-size: cover;
-        }
-
         .listbar ul li div:last-child {
             height: .2rem;
             width: .2rem;
@@ -169,38 +104,48 @@
             right: .2rem;
             bottom: .34rem;
         }
+        .listbar ul li span{
+            position: absolute;
+            right: .6rem;
+            bottom: 0rem;
+        }
+        .mystar{
+            margin-top: .6rem;
+        }
+        .mystar,.exchangeprice{
+            font-size: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            width: 100%;
+            text-indent: .6rem;
+        }
+        .exchangeprice{
+            margin-top: .5rem;
+        }
     </style>
 </head>
 
 <body>
     <div class="StatusBar"></div>
     <div class="top"><span></span>
-        <p>个人中心</p>
+        <p>星星兑换</p>
     </div>
-    <div class="person_name">
-        <div class="head"></div>
-        <div class="name">姓名</div>
-        <div class="vipLevel"></div>
-    </div>
-    <div class="invitationbg">
-        <div class="invitation"></div>
-    </div>
+    <p class="mystar">我的星星：<span>5</span>颗</p>
+    <p class="exchangeprice">兑换价格：<span>10</span>颗/次</p>
+   
     <div class="listbar">
         <ul>
             <li>
-                <div></div>我的科目<div></div>
+                <div></div>基础知识<span>兑换</span><div></div>
             </li>
             <li>
-                <div></div>新增考试<div></div>
+                <div></div>专业知识<span>兑换</span><div></div>
             </li>
             <li>
-                <div></div>历年真题<div></div>
+                <div></div>相关专业知识<span>兑换</span><div></div>
             </li>
             <li>
-                <div></div>考试记录<div></div>
-            </li>
-            <li>
-                <div></div>星星兑换<div></div>
+                <div></div>专业实践能力<span>未开通</span><div></div>
             </li>
         </ul>
     </div>

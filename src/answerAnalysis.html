@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../static/script/rem.js"></script>
+    <link rel="stylesheet" href="../static/css/weui.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: .26rem;
+            background: rgba(247, 247, 247, 1);
+            font-family: Source Han Sans CN;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .StatusBar {
+            height: .4rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .top {
+            height: .88rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+            text-align: center;
+            line-height: .88rem;
+            position: relative;
+            font-size: .36rem;
+            font-weight: 400;
+        }
+
+        .top span {
+            position: absolute;
+            left: .17rem;
+            bottom: .3rem;
+            font-weight: bolder;
+            background: url('../static/img/nav_ico_back.png') no-repeat;
+            background-size: cover;
+            width: .3rem;
+            height: .3rem;
+        }
+        .questinsnum{
+           font-size: .3rem;
+           height: .3rem;
+           line-height: .3rem;
+           margin-top: .8rem;
+           margin-left: .5rem;
+        }
+        .questions{
+            font-size: .32rem;
+            height: .32rem;
+            line-height: .32rem;
+            margin-top: .25rem;
+            margin-left: .5rem;
+        }
+        .subjectList {
+            margin-left: 1.25rem;
+            margin-top: .38rem;
+        }
+        .subject {
+            padding-left: .23rem;
+            width: 1.3rem;
+            line-height: 1rem;
+            font-size: .32rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(102, 102, 102, 1);
+        }
+
+        .subjectList ul li {
+            height: .31rem;
+            margin-bottom: .31rem;
+            width: 100%;
+            font-size: .32rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            line-height: .34rem;
+            position: relative;
+            text-indent: .7rem;
+        }
+
+        .subjectList ul li div {
+            width: .32rem;
+            height: .32rem;
+            position: absolute;
+            left: .2rem;
+            top: .03rem;
+        }
+
+        .subjectList ul li:first-child div {
+            background: url('../static/img/inicon .png')no-repeat;
+            background-size: cover;
+        }
+
+        .subjectList ul li:nth-child(2) div,
+        .subjectList ul li:nth-child(3) div,
+        .subjectList ul li:nth-child(4) div,
+        .subjectList ul li:nth-child(5) div {
+            background: url('../static/img/unselect.png')no-repeat;
+            background-size: cover;
+        }  
+        .answer{
+            font-size: .32rem;
+           height: .32rem;
+           line-height: .32rem;
+           margin-top: 1.2rem;
+           margin-left: .5rem;
+        }
+        .option{
+            font-size: .32rem;
+           height: .54rem;
+           line-height: .54rem;
+           margin-top: .1rem;
+           margin-left: .5rem;
+           width: 6.2rem;
+        }
+        .previous{
+            margin-left: .9rem;
+        }
+        .previous,.next{
+            width: 2.3rem;
+            height: .8rem;
+            margin-top: 2.6rem;
+            border: none;
+            font-size: .34rem;
+        }
+        .next{
+            margin-left: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="StatusBar"></div>
+    <div class="top"><span></span>
+        <p>答题中</p>
+    </div>
+    <p class="questinsnum">第<span>5</span>题：</p>
+    <p class="questions">类风湿关节炎最有诊断价值的X线摄片部位是？</p>
+    <div class="subjectList">
+        <ul>
+            <li>
+                <div></div>A.髋关节
+            </li>
+            <li>
+                <div></div>B.肩关节
+            </li>
+            <li>
+                <div></div>C.腕关节
+            </li>
+            <li>
+                <div></div>D.膝关节
+            </li>
+            <li>
+                <div></div>E.足关节
+            </li>
+        </ul>
+    </div>
+    <p class="answer">答案解析：</p>
+<p class="option"><span>C</span>。类风湿关节炎的诊断，关节病变的分期以手指和腕关节的X线摄片应用最多。</p>
+ <button class="previous">上一题</button><button class="next">下一题</button>
+    
+    <script src="../static/script/weui.min.js"></script>
+</body>
+
+</html>

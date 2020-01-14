@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../static/script/rem.js"></script>
+    <link rel="stylesheet" href="../static/css/weui.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: .28rem;
+            background: rgba(247, 247, 247, 1);
+            font-family: Source Han Sans CN;
+            color: rgba(51, 51, 51, 1);
+        }
+        .StatusBar {
+            height: .4rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .top {
+            height: .88rem;
+            width: 100%;
+            background: rgba(255, 255, 255, 1);
+            text-align: center;
+            line-height: .88rem;
+            position: relative;
+            font-size: .36rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        .top span {
+            position: absolute;
+            left: .17rem;
+            bottom: .3rem;
+            font-weight: bolder;
+            background: url('../static/img/nav_ico_back.png') no-repeat;
+            background-size: cover;
+            width: .3rem;
+            height: .3rem;
+        }
+        .schedule{
+            font-size: .34rem;
+            margin-top: .7rem;
+            margin-left: .6rem;
+        }
+        .unansweredQuestion{
+            margin-top: .3rem;
+            font-size: .32rem;
+            margin-left: .6rem;
+        } 
+        .unanswerlist{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row ;
+            width: 7.5rem;
+            list-style: none;
+            margin-top: .12rem;
+        }
+        .unanswerlist li{
+            width: .5rem;
+            height: .5rem;
+            margin-right: .15rem;
+            border: solid .01rem rgba(153, 153, 153, 1);
+            text-align: center;
+            line-height: .5rem;
+            margin-top: .2rem;
+            background: rgba(255, 255, 255, 1);
+        }
+        .unanswerlist li:first-child,.unanswerlist li:nth-child(11),.unanswerlist li:nth-child(21),.unanswerlist li:nth-child(31),.unanswerlist li:nth-child(41),.unanswerlist li:nth-child(51),.unanswerlist li:nth-child(61),.unanswerlist li:nth-child(71),.unanswerlist li:nth-child(81),.unanswerlist li:nth-child(91){
+            margin-left: .5rem;
+        }
+        .finishsubmit{
+            font-size: .28rem;
+            margin-top: .5rem;
+            margin-left: .6rem;
+            color: rgba(153, 153, 153, 1);
+        }
+        .submit{
+            width: 2.4rem;
+            height: .8rem;
+            margin-top: 4.3rem;
+            margin-left: 2.55rem;
+            border: none;
+            font-size: .36rem;
+            color: rgba(255, 255, 255, 256);
+        }
+     
+    
+    </style>
+</head>
+
+<body>
+    <div class="StatusBar"></div>
+    <div class="top"><span></span>
+        <p>提交</p>
+    </div>
+    <p class="schedule">答题进度：<span>87</span>%</p>
+    <p class="unansweredQuestion">未作答题目：</p>
+    <ul class="unanswerlist">
+        <li>24</li>
+        <li>45</li>
+        <li>48</li>
+        <li>24</li>
+        <li>45</li>
+        <li>48</li>
+        <li>24</li>
+        <li>45</li>
+        <li>48</li>
+        <li>24</li>
+        <li>45</li>
+        <li>48</li>
+        <li>100</li>
+    </ul>
+    <p class="finishsubmit">全部作答后才可提交。</p>
+    <button class="submit">提交</button>
+    
+    <script src="../static/script/weui.min.js"></script>
+</body>
+
+</html>

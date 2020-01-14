@@ -1,40 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script src="../static/js/rem.js"></script>
-  <link rel="stylesheet" href="../static/css/index.css">
+  <script src="../static/script/rem.js"></script>
+  <link rel="stylesheet" href="../static/css/weui.min.css">
   <style>
-    .box{
-      height: 1rem;
-      background: pink;
+    body {
+      font-size: .32rem;
+      background: rgba(102, 212, 232, 1);
+    }
 
+    ul {
+      list-style: none;
+    }
 
+    .StatusBar {
+      height: .4rem;
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .top {
+      height: .88rem;
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+      text-align: center;
+      line-height: .88rem;
+      position: relative;
+      color: rgba(51, 51, 51, 1);
+      margin-top: -.01rem;
+      font-family: Source Han Sans CN;
+      font-weight: 400;
+    }
+
+    .top span {
+      position: absolute;
+      left: .24rem;
+      bottom: .3rem;
+      font-weight: bolder;
+      background: url('../static/img/nav_ico_back.png') no-repeat;
+      background-size: cover;
+      width: .15rem;
+      height: .28rem;
+    }
+
+    .logo {
+      height: 3.5rem;
+      width: 100%;
+    }
+
+    .NursingExam {
+      height: 3.5rem;
+      width: 100%;
+    }
+
+    .selectLis li {
+      height: 1.5rem;
+      width: 6.9rem;
+      background: salmon;
+      margin: 0 auto .2rem;
+      border-radius: .25rem;
+      line-height: 1.5rem;
+      text-indent: 1.21rem;
+      background: rgba(255, 255, 255, 1);
+      position: relative;
+    }
+
+    .selectLis li:first-child {
+      margin: 0 auto .2rem;
+      color: #FDBB65;
+    }
+
+    .selectLis li:nth-child(2) {
+      color: #43BFF3;
+    }
+
+    .selectLis li:nth-child(3) {
+      color: #FE6260;
+    }
+
+    .selectLis li:nth-child(4) {
+      color: #947AFC;
+      margin: 0 auto;
+    }
+
+    .base,
+    .Expertise {
+      width: .44rem;
+      height: .44rem;
+      position: absolute;
+      left: .47rem;
+      top: .57rem;
+    }
+
+    .RelatedExpertise,
+    .ProfessionalPractice {
+      width: .44rem;
+      height: .44rem;
+      position: absolute;
+      left: .47rem;
+      top: .57rem;
+    }
+
+    .login {
+      margin: .52rem .65rem;
+      background: linear-gradient(90deg, rgba(254, 225, 138, 1), rgba(254, 190, 102, 1));
+      box-shadow: 0px 2px 6px 0px rgba(254, 189, 102, 1);
+    }
+
+    .login,
+    .tryfree {
+      width: 2.88rem;
+      height: .88rem;
+      border-radius: .44rem;
+      border: none;
+      color: #FFFFFF;
+    }
+
+    .tryfree {
+      background: linear-gradient(90deg, rgba(250, 141, 112, 1), rgba(254, 96, 95, 1));
+      box-shadow: 0px 2px 6px 0px rgba(254, 97, 95, 1);
     }
   </style>
+  </style>
 </head>
+
 <body>
-  <div class="box">
-    hello ! test
+  <div class="StatusBar"></div>
+  <div class="top"><span></span>
+    <p>免费试用</p>
   </div>
-  <img src="./friend.png" alt="" srcset="">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
-      window.onload = function () {
-    //       axios.post('/api/api/Login/doLogin', {
-    //           username: 'pang',
-    //           password: '12345'
-    // })
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-      }
-  </script>
+  <div class="logo"><img src="../static/img/banner.png" class="NursingExam"></div>
+  <ul class="selectLis">
+    <li><img src="../static/img/basic.png" class="base">基础知识</li>
+    <li><img src="../static/img/major.png" class="Expertise">专业知识</li>
+    <li><img src="../static/img/relevant.png" class="RelatedExpertise">相关专业知识</li>
+    <li><img src="../static/img/practice.png" class="ProfessionalPractice">专业实践能力</li>
+  </ul>
+  <div><button class="login">登录/注册</button><button class="tryfree">免费试用</button></div>
+  <script src="../static/script/weui.min.js"></script>
 </body>
+
 </html>

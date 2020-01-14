@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="../static/js/rem.js"></script>
+    <script src="../static/script/rem.js"></script>
     <link rel="stylesheet" href="../static/css/weui.min.css">
     <style>
         body {
@@ -31,6 +31,9 @@
             text-align: center;
             line-height: .88rem;
             position: relative;
+            color: rgba(51, 51, 51, 1);
+            font-family:Source Han Sans CN;
+            font-weight:400;
         }
 
         .top span {
@@ -121,7 +124,7 @@
             top: .02rem;
         }
 
-        .subjectList ul li.active div {
+        .subjectList ul li:first-child div {
             background: url('../static/img/inicon .png')no-repeat;
             background-size: cover;
         }
@@ -135,7 +138,7 @@
 
         .protocol {
             height: .32rem;
-            margin-top: 4.32rem;
+            margin-top: 4.36rem;
             margin-left: 1.84rem;
             font-size: .24rem;
             font-family: Source Han Sans CN;
@@ -167,7 +170,8 @@
             margin-top: .34rem;
             margin-left: 2.35rem;
         }
-        .protocol span{
+
+        .protocol span {
             color: #6AE4E9;
         }
     </style>
@@ -184,7 +188,7 @@
         <span class="subject">报名科目:</span>
         <div class="subjectList">
             <ul>
-                <li class="active">
+                <li>
                     <div></div>基础知识
                 </li>
                 <li>
@@ -206,10 +210,7 @@
 
     <div><button class="next">下一步</button></div>
     <script src="../static/script/weui.min.js"></script>
-    <script src="https://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
-    <script>
-        
-    </script>
+  
 </body>
 
 </html>
