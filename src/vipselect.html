@@ -73,17 +73,31 @@
             background: url('../static/img/level1.png') no-repeat;
             background-size: cover;
         }
-
-        .ordinarymember button {
+        .selebtnnormal{
+            background: url('../static/img/unselect.png')no-repeat;
+            background-size: cover;
+            }
+        .ordinarymember button,.advancedmember button{
             width: .4rem;
             height: .4rem;
             border-radius: .25rem;
             border: none;
-            background: url('../static/img/no-select.png')no-repeat;
-            background-size: cover;
             position: absolute;
             left: .4rem;
             top: 1.6rem;
+        }
+         .selebtnadvance{
+            background: url('../static/img/no-select.png')no-repeat;
+            background-size: cover; 
+        }
+
+        .select{
+            background: url('../static/img/unselect.png')no-repeat;
+            background-size: cover; 
+        }
+        .notselect{
+            background: url('../static/img/no-select.png')no-repeat;
+            background-size: cover; 
         }
 
         .normalprice {
@@ -101,7 +115,7 @@
             height: .34rem;
         }
 
-        .ordinarymember ul {
+        .ordinarymember ul,.advancedmember ul{
             position: absolute;
             top: .76rem;
             right: 1.45rem;
@@ -119,12 +133,6 @@
             background: url('../static/img/level1.png') no-repeat;
             background-size: cover;
         }
-
-        #surebtn {
-            background: url('../static/img/unselect.png')no-repeat;
-            background-size: cover;
-        }
-
         .attention {
             font-size: .24rem;
             font-family: Source Han Sans CN;
@@ -169,7 +177,7 @@
         <p>选择会员等级</p>
     </div>
     <div class="ordinarymember">
-        <button></button>
+        <button class="selebtnnormal"></button>
         <div class="normalprice">
             <span>普通会员</span>
             <p>199/科</p>
@@ -181,8 +189,8 @@
             <li>50次模拟试卷</li>
         </ul>
     </div>
-    <div class="ordinarymember" id="advancedmember">
-        <button id="surebtn"></button>
+    <div class="advancedmember">
+        <button class="selebtnadvance"></button>
         <div class="normalprice">
             <span>普通会员</span>
             <p>699/科</p>
@@ -201,6 +209,24 @@
     </div>
     <div><button class="Previous">上一步</button><button class="next-step">下一步</button></div>
     <script src="../static/script/weui.min.js"></script>
+    <script>
+          let oSelebtnnormal=document.querySelector(".selebtnnormal"),
+              oSelebtnadvance=document.querySelector(".selebtnadvance");
+              oSelebtnadvance.onclick=function (){
+                  oSelebtnadvance.classList.toggle('select');
+              }
+              oSelebtnnormal.onclick=function (){
+                oSelebtnnormal.classList.toggle('notselect');
+              }
+            let oNext=document.querySelector(".next-step"),
+                oPrevious=document.querySelector(".Previous");
+                oNext.onclick=function(){
+                    window.location.href="payment.html"
+                }
+                oPrevious.onclick=function(){
+                    window.location.href="login.html"
+                }
+    </script>
 </body>
 
 </html>
