@@ -7,11 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>会员等级</title>
     <script src="../static/script/rem.js"></script>
-    <link rel="stylesheet" href="../static/css/weui.min.css">
     <style>
         body {
             font-size: .3rem;
             background: rgba(247, 247, 247, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         .StatusBar {
@@ -207,13 +211,12 @@
         <button class="Previous">上一步</button>
         <button class="next-step"><a href="payment.html?aaddfgg" id="anext">下一步</a></button>
     </div>
-    <script src="../static/script/weui.min.js"></script>
     <script>
         let oSelebtnnormal = document.querySelector(".selebtnnormal"),
             oSelebtnadvance = document.querySelector(".selebtnadvance");
-        oSelebtnnormal.classList.add("select");
-        oSelebtnadvance.classList.add("unselect");
-        oSelebtnnormal.onclick = function () {
+            oSelebtnnormal.classList.add("select");
+            oSelebtnadvance.classList.add("unselect");
+            oSelebtnnormal.onclick = function () {
             oSelebtnadvance.classList.remove("select")
             oSelebtnadvance.classList.add("unselect")
             oSelebtnnormal.classList.remove("unselect")

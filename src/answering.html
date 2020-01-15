@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../static/script/rem.js"></script>
-    <link rel="stylesheet" href="../static/css/weui.min.css">
     <title>答题中</title>
     <style>
         body {
@@ -14,6 +13,11 @@
             background: rgba(247, 247, 247, 1);
             font-family: Source Han Sans CN;
             color: rgba(51, 51, 51, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         ul {
@@ -47,24 +51,28 @@
             width: .3rem;
             height: .3rem;
         }
-        .questinsnumo{
-           font-size: .3rem;
-           height: .3rem;
-           line-height: .3rem;
-           margin-top: .8rem;
-           margin-left: .5rem;
+
+        .questinsnumo {
+            font-size: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            margin-top: .8rem;
+            margin-left: .5rem;
         }
-        .questions{
+
+        .questions {
             font-size: .32rem;
             height: .32rem;
             line-height: .32rem;
             margin-top: .25rem;
             margin-left: .5rem;
         }
+
         .subjectList {
             margin-left: 1.25rem;
             margin-top: .38rem;
         }
+
         .subject {
             padding-left: .23rem;
             width: 1.3rem;
@@ -96,27 +104,30 @@
             top: .03rem;
         }
 
-      
-
         .subjectList ul li div {
             background: url('../static/img/unselect.png')no-repeat;
             background-size: cover;
         }
-        .subjectList ul li.active div{
+
+        .subjectList ul li.active div {
             background: url('../static/img/inicon .png')no-repeat;
             background-size: cover;
         }
-        .previous{
-            margin-left: .9rem;  
+
+        .previous {
+            margin-left: .9rem;
         }
-        .previous,.next{
+
+        .previous,
+        .next {
             width: 2.3rem;
             height: .8rem;
             margin-top: 4.1rem;
             border: none;
             font-size: .32rem;
         }
-        .next{
+
+        .next {
             margin-left: 1.2rem;
         }
     </style>
@@ -151,73 +162,68 @@
                         </li>
                     </ul>
                 </div>
-                <button class="previous" @click="previous(index)">上一题</button><button class="next" @click="next(index)">下一题</button>
+                <button class="previous" @click="previous(index)">上一题</button><button class="next"
+                    @click="next(index)">下一题</button>
             </div>
-            
-         
         </div>
     </div>
-
-    
- <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
- <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
- <script src="../static/js/com.js"></script>
- <script>
-     var Vue = new Vue({
-         el: '#warp',
-         data: {
-            keid: '',
-            datalist: [
-            ]
-         },
-         mounted: function() {
-             this.keid = parseInt(Com.getParams('id'))
-             this.getData()
-         },
-         methods: {
-             
-            getData: function(){
-                var _this = this
-                Com.ajax('/index/index/index/startExam',{
-                   id: this.keid 
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <script src="../static/js/com.js"></script>
+    <script>
+        var Vue = new Vue({
+            el: '#warp',
+            data: {
+                keid: '',
+                datalist: [
+                ]
+            },
+            mounted: function () {
+                this.keid = parseInt(Com.getParams('id'))
+                this.getData()
+            },
+            methods: {
+                getData: function () {
+                    var _this = this
+                    Com.ajax('/index/index/index/startExam', {
+                        id: this.keid
+                    },
+                        function (rs) {
+                            // console.log(JSON.stringify(rs))
+                            // 给每个题目加是否为选中状态
+                            // 添加五个选项的备用数组
+                            for (var i = 0; i < rs.length; i++) {
+                                rs[i]['selectArr'] = [0, 0, 0, 0, 0]
+                                rs[i]['ifshow'] = false
+                            }
+                            rs[0]['ifshow'] = true
+                            _this.datalist = rs
+                            // console.log(JSON.stringify(_this.datalist[0]))
+                        })
                 },
-                function(rs){
-                    // console.log(JSON.stringify(rs))
-                    // 给每个题目加是否为选中状态
-                    // 添加五个选项的备用数组
-                    for(var i=0;i<rs.length;i++){
-                        rs[i]['selectArr'] = [ 0, 0, 0, 0, 0]
-                        rs[i]['ifshow'] = false
+                // 点击变色传值
+                selectOne: function (index_ti, index_xuan) {
+                    // console.log(this.datalist[index_ti].selectArr[index_xuan])
+                    this.datalist[index_ti].selectArr[index_xuan] = 1
+                    console.log(this.datalist[0].selectArr)
+                },
+                // 上一题
+                previous: function (index) {
+                    if (index === 0) {
+                        alert('已经是第一题了')
+                        return
                     }
-                    rs[0]['ifshow'] = true
-                    _this.datalist = rs
-                    // console.log(JSON.stringify(_this.datalist[0]))
-                })
-
-            },
-            // 点击变色传值
-            selectOne: function(index_ti, index_xuan){
-                // console.log(this.datalist[index_ti].selectArr[index_xuan])
-                this.datalist[index_ti].selectArr[index_xuan] = 1
-                console.log(this.datalist[0].selectArr)
-            },
-            // 上一题
-            previous: function(index){
-                if(index === 0){
-                    alert('已经是第一题了')
-                    return
+                    this.datalist[index].ifshow = false
+                    this.datalist[index - 1].ifshow = true
+                },
+                // 下一题
+                next: function (index) {
+                    this.datalist[index].ifshow = false
+                    this.datalist[index + 1].ifshow = true
                 }
-                this.datalist[index].ifshow = false
-                this.datalist[index-1].ifshow = true
-            },
-            // 下一题
-            next: function(index){
-                this.datalist[index].ifshow = false
-                this.datalist[index+1].ifshow = true
             }
-         }
-     })
- </script>
+        })
+    </script>
 </body>
 
 </html>
