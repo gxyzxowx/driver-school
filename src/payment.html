@@ -188,7 +188,7 @@
     </div>
     <div class="content">
         <p class="name">尊敬的：<span>王某某</span></p>
-        <p class="selectednum">您选择了<span>2</span>个科目：</p>
+        <p class="selectednum">您选择了<span>1</span>个科目：</p>
 
         <div class="subjectList">
             <ul>
@@ -219,7 +219,8 @@
     <script src="../static/script/weui.min.js"></script>
     <script>
         let oSubjectLis = document.querySelectorAll(".subjectList ul li"),
-            oSelectImgs = document.querySelectorAll(".subjectList ul div");
+            oSelectImgs = document.querySelectorAll(".subjectList ul div"),
+            oSelectednum = document.querySelector(".selectednum span");
         (function addlist() {
             for (let i = 0; i < oSubjectLis.length; i++) {
                 if (i == 0) {
@@ -237,11 +238,13 @@
                 oSelectImgs[0].classList.remove("select");
                 oSelectImgs[0].classList.add("unselect");
                 judge1 = false;
+                selectnumber();
             }
             else {
                 oSelectImgs[0].classList.remove("unselect");
                 oSelectImgs[0].classList.add("select");
                 judge1 = true;
+                selectnumber();
             }
         }
         for (let i = 1; i < oSubjectLis.length; i++) {
@@ -251,12 +254,29 @@
                     oSelectImgs[this.index].classList.remove("unselect")
                     oSelectImgs[this.index].classList.add("select");
                     judge2 = false;
+                    selectnumber();
                 }
                 else {
                     oSelectImgs[this.index].classList.remove("select")
                     oSelectImgs[this.index].classList.add("unselect");
                     judge2 = true;
+                    selectnumber();
                 }
+            }
+        }
+        function selectnumber() {
+            var num = 0;
+            for (let j = 0; j < oSubjectLis.length; j++) {
+                if (oSelectImgs[j].classList.contains("select")) {
+                    num++
+                }
+            }
+            oSelectednum.innerHTML = num;
+            if (oViplevel.innerHTML == "高级会员") {
+                oCost.innerHTML = "￥" + 699 * num;
+            }
+            if (oViplevel.innerHTML == "普通会员") {
+                oCost.innerHTML = "￥" + 199 * num;
             }
         }
         let oPrevious = document.querySelector(".Previous"),
@@ -267,7 +287,18 @@
         oPayment.onclick = function () {
             window.location.href = "personalCenter.html"
         }
-
+        let oViplevel = document.querySelector(".viplevel p"),
+            oCost = document.querySelector(".cost p");
+        var para = window.location.search;
+        if (para == "?putonghuiyuan") {
+            oViplevel.innerHTML = "普通会员";
+            oCost.innerHTML = "￥199";
+            let price = 199;
+        }
+        if (para == "?gaojihuiyuan") {
+            oViplevel.innerHTML = "高级会员";
+            oCost.innerHTML = "￥699";
+        }
     </script>
 </body>
 

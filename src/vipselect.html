@@ -149,7 +149,7 @@
         }
 
         .Previous,
-        .next-step {
+        .next-step,#anext {
             width: 2.88rem;
             height: .88rem;
             color: #FFFFFF;
@@ -163,6 +163,7 @@
             margin-top:1.2rem;
             margin-left: .6rem;
         }
+    
     </style>
 </head>
 
@@ -187,7 +188,7 @@
     <div class="advancedmember">
         <div class="selebtnadvance"></div>
         <div class="normalprice">
-            <span>普通会员</span>
+            <span>高级会员</span>
             <p>699/科</p>
         </div>
         <ul>
@@ -204,7 +205,7 @@
     </div>
     <div>
         <button class="Previous">上一步</button>
-        <button class="next-step">下一步</button>
+        <button class="next-step"><a href="payment.html?aaddfgg" id="anext">下一步</a></button>
     </div>
     <script src="../static/script/weui.min.js"></script>
     <script>
@@ -226,12 +227,18 @@
         }
         let oNext = document.querySelector(".next-step"),
             oPrevious = document.querySelector(".Previous");
-        oNext.onclick = function () {
-            window.location.href = "payment.html"
-        }
         oPrevious.onclick = function () {
             window.location.href = "login.html"
         }
+        let oAnext=document.querySelector("#anext");
+         oAnext.onclick=function(){
+             if(oSelebtnnormal.classList.contains('select')){
+                oAnext.href="payment.html?putonghuiyuan"
+             }
+             else{
+                oAnext.href="payment.html?gaojihuiyuan"
+             }
+         }
     </script>
 </body>
 
