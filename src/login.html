@@ -7,11 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册</title>
     <script src="../static/script/rem.js"></script>
-    <link rel="stylesheet" href="../static/css/weui.min.css">
     <style>
         body {
             font-size: .3rem;
             background: rgba(247, 247, 247, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         ul {
@@ -32,8 +36,8 @@
             line-height: .88rem;
             position: relative;
             color: rgba(51, 51, 51, 1);
-            font-family:Source Han Sans CN;
-            font-weight:400;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
         }
 
         .top span {
@@ -210,14 +214,13 @@
     </div>
 
     <div><button class="next">下一步</button></div>
-    <script src="../static/script/weui.min.js"></script>
     <script>
-       let oNext=document.querySelector(".next");
-       oNext.onclick=function(){
-        window.location.href="vipselect.html"
-       }
+        let oNext = document.querySelector(".next");
+        oNext.onclick = function () {
+            window.location.href = "vipselect.html"
+        }
     </script>
-     <script>
+    <script>
         let oSubjectLis = document.querySelectorAll(".subjectList ul li"),
             oSelectImgs = document.querySelectorAll(".subjectList ul div"),
             oSelectednum = document.querySelector(".selectednum span");
@@ -260,8 +263,8 @@
                 }
             }
         }
-        var oProtocolSelect=document.querySelector(".protocol div");
-        var judge3=true;
+        var oProtocolSelect = document.querySelector(".protocol div");
+        var judge3 = true;
         oProtocolSelect.classList.add("select")
         oProtocolSelect.onclick = function () {
             if (judge3) {
@@ -276,7 +279,6 @@
             }
         }
     </script>
-  
 </body>
 
 </html>

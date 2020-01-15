@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../static/script/rem.js"></script>
-    <link rel="stylesheet" href="../static/css/weui.min.css">
     <title>答案解析</title>
     <style>
         body {
@@ -14,6 +13,11 @@
             background: rgba(247, 247, 247, 1);
             font-family: Source Han Sans CN;
             color: rgba(51, 51, 51, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         ul {
@@ -47,24 +51,28 @@
             width: .3rem;
             height: .3rem;
         }
-        .questinsnum{
-           font-size: .3rem;
-           height: .3rem;
-           line-height: .3rem;
-           margin-top: .8rem;
-           margin-left: .5rem;
+
+        .questinsnum {
+            font-size: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            margin-top: .8rem;
+            margin-left: .5rem;
         }
-        .questions{
+
+        .questions {
             font-size: .32rem;
             height: .32rem;
             line-height: .32rem;
             margin-top: .25rem;
             margin-left: .5rem;
         }
+
         .subjectList {
             margin-left: 1.25rem;
             margin-top: .38rem;
         }
+
         .subject {
             padding-left: .23rem;
             width: 1.3rem;
@@ -107,33 +115,39 @@
         .subjectList ul li:nth-child(5) div {
             background: url('../static/img/unselect.png')no-repeat;
             background-size: cover;
-        }  
-        .answer{
-            font-size: .32rem;
-           height: .32rem;
-           line-height: .32rem;
-           margin-top: 1.2rem;
-           margin-left: .5rem;
         }
-        .option{
+
+        .answer {
             font-size: .32rem;
-           height: .54rem;
-           line-height: .54rem;
-           margin-top: .1rem;
-           margin-left: .5rem;
-           width: 6.2rem;
+            height: .32rem;
+            line-height: .32rem;
+            margin-top: 1.2rem;
+            margin-left: .5rem;
         }
-        .previous{
+
+        .option {
+            font-size: .32rem;
+            height: .54rem;
+            line-height: .54rem;
+            margin-top: .1rem;
+            margin-left: .5rem;
+            width: 6.2rem;
+        }
+
+        .previous {
             margin-left: .9rem;
         }
-        .previous,.next{
+
+        .previous,
+        .next {
             width: 2.3rem;
             height: .8rem;
             margin-top: 2.6rem;
             border: none;
             font-size: .34rem;
         }
-        .next{
+
+        .next {
             margin-left: 1.2rem;
         }
     </style>
@@ -166,10 +180,8 @@
         </ul>
     </div>
     <p class="answer">答案解析：</p>
-<p class="option"><span>C</span>。类风湿关节炎的诊断，关节病变的分期以手指和腕关节的X线摄片应用最多。</p>
- <button class="previous">上一题</button><button class="next">下一题</button>
-    
-    <script src="../static/script/weui.min.js"></script>
+    <p class="option"><span>C</span>。类风湿关节炎的诊断，关节病变的分期以手指和腕关节的X线摄片应用最多。</p>
+    <button class="previous">上一题</button><button class="next">下一题</button>
 </body>
 
 </html>
