@@ -81,12 +81,55 @@
     <div class="top"><span></span>
         <p>确认科目</p>
     </div>
-    <p class="projectname">基础知识</p>
-    <p class="lavetimes">剩余次数：<span>50</span>次</p>
- 
-    <button class="rechargetimes">充值次数</button><button class="startexam">开始考试</button>
-    
-    <script src="../static/script/weui.min.js"></script>
+    <div id="warp">
+        <p class="projectname">{{s}}</p>
+        <p class="lavetimes">剩余次数：<span>50</span>次</p>
+     
+        <button class="rechargetimes">充值次数</button><button class="startexam">开始考试</button>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <script>
+        var Vue = new Vue({
+            el: '#warp',
+            data: {
+                keid: ''
+            },
+            mounted: function () {
+                this.keid = this.getParams('id')
+                console.log(this.keid)
+                this.getData()
+            },
+            methods: {
+                getData: function(){
+                    var _this = this
+                    axios.get('/index/index/index/confirmAccount', {
+                        params:{
+                            id: this.keid
+                        }
+                    })
+                    .then(function (rs) {
+                    console.log(JSON.stringify(rs.data.data));
+                    var ret = rs.data
+                    if(ret.code === 0){
+                        
+                    }
+                    
+                    })
+                    .catch(function (error) {
+                    console.log(error);
+                    });
+                },
+                getParams: function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                }
+
+            }
+        })
+    </script>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,7 +120,7 @@
     </div>
     <div class="listbar">
         <ul id="warp">
-            <li v-for="item in datalist" :key="item.id">
+            <li v-for="(item, index) in datalist" :key="item.id" @click="comfirmKe(index)">
                 <div></div>{{item.name}}<span>{{item.num}}次</span><div></div>
             </li>
             <!-- <li>
@@ -149,7 +150,7 @@
                     var _this = this
                     axios.get('/index/index/index/addExam', {})
                     .then(function (rs) {
-                    // console.log(JSON.stringify(rs.data.data));
+                    console.log(JSON.stringify(rs.data.data));
                     var ret = rs.data
                     if(ret.code === 0){
                         _this.datalist = rs.data.data
@@ -159,6 +160,22 @@
                     .catch(function (error) {
                     console.log(error);
                     });
+                },
+                comfirmKe: function(index){
+                    
+                    // num =0：跳往充值次数；status=0:跳往开通会员科目；其他情况跳往确认科目
+                    var selectObj = this.datalist[index]
+                    // console.log(selectObj)
+                    // return
+                    var _id = selectObj.id
+                    if(selectObj.status === 0){
+                        window.location.href = './sureproject.html?id='+ _id
+                    } else if(selectObj.num === 0){
+                        window.location.href = './sureproject.html?id=' + _id
+                    } else {
+                        window.location.href = './sureproject.html?id=' + _id
+                    }
+                    
                 }
             }
         })
