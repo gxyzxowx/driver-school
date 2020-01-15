@@ -115,7 +115,7 @@
 
 <body>
     <div class="StatusBar"></div>
-    <div class="top"><span></span>
+    <div class="top"><span onclick="Com.goback()"></span>
         <p>新增考试</p>
     </div>
     <div class="listbar">
@@ -134,9 +134,12 @@
             </li> -->
         </ul>
     </div>
-    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <script src="../static/js/com.js"></script>
+    <script src="../static/js/vue.js"></script>
+    <script src="../static/js/axios.js"></script>
     <script>
+
+        
         var Vue = new Vue({
             el: '#warp',
             data: {

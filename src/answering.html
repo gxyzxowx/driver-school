@@ -96,16 +96,14 @@
             top: .03rem;
         }
 
-        .subjectList ul li:first-child div {
-            background: url('../static/img/inicon .png')no-repeat;
+      
+
+        .subjectList ul li div {
+            background: url('../static/img/unselect.png')no-repeat;
             background-size: cover;
         }
-
-        .subjectList ul li:nth-child(2) div,
-        .subjectList ul li:nth-child(3) div,
-        .subjectList ul li:nth-child(4) div,
-        .subjectList ul li:nth-child(5) div {
-            background: url('../static/img/unselect.png')no-repeat;
+        .subjectList ul li.active div{
+            background: url('../static/img/inicon .png')no-repeat;
             background-size: cover;
         }
         .previous{
@@ -129,30 +127,97 @@
     <div class="top"><span></span>
         <p>答题中</p>
     </div>
-    <p class="questinsnumo">第<span>5</span>题：</p>
-    <p class="questions">类风湿关节炎最有诊断价值的X线摄片部位是？</p>
-    <div class="subjectList">
-        <ul>
-            <li>
-                <div></div>A.髋关节
-            </li>
-            <li>
-                <div></div>B.肩关节
-            </li>
-            <li>
-                <div></div>C.腕关节
-            </li>
-            <li>
-                <div></div>D.膝关节
-            </li>
-            <li>
-                <div></div>E.足关节
-            </li>
-        </ul>
+    <div id="warp">
+        <div class="list" v-for="(item, index) in datalist" :key="item.id">
+            <div class="content" v-show="item.ifshow">
+                <p class="questinsnumo">第<span>{{index + 1}}</span>题：</p>
+                <p class="questions">{{item.title}}</p>
+                <div class="subjectList">
+                    <ul>
+                        <li :class="{active:item.selectArr[0]}" @click="selectOne(index, 0)">
+                            <div></div>A.{{item.a}}
+                        </li>
+                        <li :class="{active:item.selectArr[1]}" @click="selectOne(index, 1)">
+                            <div></div>B.{{item.b}}
+                        </li>
+                        <li :class="{active:item.selectArr[2]}" @click="selectOne(index, 2)">
+                            <div></div>C.{{item.c}}
+                        </li>
+                        <li :class="{active:item.selectArr[3]}" @click="selectOne(index, 3)">
+                            <div></div>D.{{item.d}}
+                        </li>
+                        <li :class="{active:item.selectArr[4]}" @click="selectOne(index, 4)">
+                            <div></div>E.{{item.e}}
+                        </li>
+                    </ul>
+                </div>
+                <button class="previous" @click="previous(index)">上一题</button><button class="next" @click="next(index)">下一题</button>
+            </div>
+            
+         
+        </div>
     </div>
- <button class="previous">上一题</button><button class="next">下一题</button>
+
     
-    <script src="../static/script/weui.min.js"></script>
+ <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+ <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+ <script src="../static/js/com.js"></script>
+ <script>
+     var Vue = new Vue({
+         el: '#warp',
+         data: {
+            keid: '',
+            datalist: [
+            ]
+         },
+         mounted: function() {
+             this.keid = parseInt(Com.getParams('id'))
+             this.getData()
+         },
+         methods: {
+             
+            getData: function(){
+                var _this = this
+                Com.ajax('/index/index/index/startExam',{
+                   id: this.keid 
+                },
+                function(rs){
+                    // console.log(JSON.stringify(rs))
+                    // 给每个题目加是否为选中状态
+                    // 添加五个选项的备用数组
+                    for(var i=0;i<rs.length;i++){
+                        rs[i]['selectArr'] = [ 0, 0, 0, 0, 0]
+                        rs[i]['ifshow'] = false
+                    }
+                    rs[0]['ifshow'] = true
+                    _this.datalist = rs
+                    // console.log(JSON.stringify(_this.datalist[0]))
+                })
+
+            },
+            // 点击变色传值
+            selectOne: function(index_ti, index_xuan){
+                // console.log(this.datalist[index_ti].selectArr[index_xuan])
+                this.datalist[index_ti].selectArr[index_xuan] = 1
+                console.log(this.datalist[0].selectArr)
+            },
+            // 上一题
+            previous: function(index){
+                if(index === 0){
+                    alert('已经是第一题了')
+                    return
+                }
+                this.datalist[index].ifshow = false
+                this.datalist[index-1].ifshow = true
+            },
+            // 下一题
+            next: function(index){
+                this.datalist[index].ifshow = false
+                this.datalist[index+1].ifshow = true
+            }
+         }
+     })
+ </script>
 </body>
 
 </html>
