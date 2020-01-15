@@ -74,8 +74,8 @@
             background-size: cover;
         }
 
-        .ordinarymember button,
-        .advancedmember button {
+        .ordinarymember div:first-child,
+        .advancedmember div:first-child {
             width: .4rem;
             height: .4rem;
             border-radius: .25rem;
@@ -86,7 +86,12 @@
         }
 
         .select {
-            background: url('../static/img/unselect.png')no-repeat;
+            background: url('../static/img/select.png')no-repeat;
+            background-size: cover;
+        }
+
+        .unselect {
+            background: url('../static/img/no-select.png')no-repeat;
             background-size: cover;
         }
 
@@ -137,24 +142,28 @@
         }
 
         .Previous {
-            margin: .52rem;
             border-radius: .65rem;
             background: linear-gradient(90deg, rgba(191, 191, 191, 1), rgba(210, 212, 212, 1));
-            margin-top: 1.3rem;
+            margin-top: 1.2rem;
+            margin-left: .62rem;
         }
 
         .Previous,
-        .next-step {
+        .next-step,#anext {
             width: 2.88rem;
             height: .88rem;
             color: #FFFFFF;
             border: none;
+            text-align: center;
+            line-height: .88rem;
         }
-
         .next-step {
             border-radius: .5rem;
             background: linear-gradient(90deg, rgba(106, 228, 233, 1), rgba(101, 207, 232, 1));
+            margin-top:1.2rem;
+            margin-left: .6rem;
         }
+    
     </style>
 </head>
 
@@ -164,7 +173,7 @@
         <p>选择会员等级</p>
     </div>
     <div class="ordinarymember">
-        <button class="selebtnnormal"></button>
+        <div class="selebtnnormal"></div>
         <div class="normalprice">
             <span>普通会员</span>
             <p>199/科</p>
@@ -177,9 +186,9 @@
         </ul>
     </div>
     <div class="advancedmember">
-        <button class="selebtnadvance"></button>
+        <div class="selebtnadvance"></div>
         <div class="normalprice">
-            <span>普通会员</span>
+            <span>高级会员</span>
             <p>699/科</p>
         </div>
         <ul>
@@ -194,42 +203,42 @@
         <p>会员等级选择后不可更改，</p>
         <p>每个科目只能开通相同等级会员。</p>
     </div>
-    <div><button class="Previous">上一步</button><button class="next-step">下一步</button></div>
+    <div>
+        <button class="Previous">上一步</button>
+        <button class="next-step"><a href="payment.html?aaddfgg" id="anext">下一步</a></button>
+    </div>
     <script src="../static/script/weui.min.js"></script>
     <script>
         let oSelebtnnormal = document.querySelector(".selebtnnormal"),
             oSelebtnadvance = document.querySelector(".selebtnadvance");
         oSelebtnnormal.classList.add("select");
-        var judge1 = true;
-        var judge2 = true;
+        oSelebtnadvance.classList.add("unselect");
         oSelebtnnormal.onclick = function () {
-            if (judge1) {
-                oSelebtnnormal.classList.remove("select")
-                judge1 = false;
-            }
-            else {
-                oSelebtnnormal.classList.add("select")
-                judge1 = true;
-            }
+            oSelebtnadvance.classList.remove("select")
+            oSelebtnadvance.classList.add("unselect")
+            oSelebtnnormal.classList.remove("unselect")
+            oSelebtnnormal.classList.add("select")
         }
         oSelebtnadvance.onclick = function () {
-            if (judge2) {
-                oSelebtnadvance.classList.add("select")
-                judge2 = false;
-            }
-            else {
-                oSelebtnadvance.classList.remove("select")
-                judge2 = true;
-            }
+            oSelebtnnormal.classList.remove("select");
+            oSelebtnnormal.classList.add("unselect");
+            oSelebtnadvance.classList.remove("unselect")
+            oSelebtnadvance.classList.add("select")
         }
         let oNext = document.querySelector(".next-step"),
             oPrevious = document.querySelector(".Previous");
-        oNext.onclick = function () {
-            window.location.href = "payment.html"
-        }
         oPrevious.onclick = function () {
             window.location.href = "login.html"
         }
+        let oAnext=document.querySelector("#anext");
+         oAnext.onclick=function(){
+             if(oSelebtnnormal.classList.contains('select')){
+                oAnext.href="payment.html?putonghuiyuan"
+             }
+             else{
+                oAnext.href="payment.html?gaojihuiyuan"
+             }
+         }
     </script>
 </body>
 
