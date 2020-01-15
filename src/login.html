@@ -124,14 +124,17 @@
             top: .02rem;
         }
 
-        .subjectList ul li:first-child div {
+        .notselect {
+            background: url('../static/img/unselect.png')no-repeat;
+            background-size: cover;
+        }
+
+        .select {
             background: url('../static/img/inicon .png')no-repeat;
             background-size: cover;
         }
 
-        .subjectList ul li:nth-child(2) div,
-        .subjectList ul li:nth-child(3) div,
-        .subjectList ul li:nth-child(4) div {
+        .unselect {
             background: url('../static/img/unselect.png')no-repeat;
             background-size: cover;
         }
@@ -155,8 +158,6 @@
             position: absolute;
             left: 0;
             top: .02rem;
-            background: url('../static/img/inicon .png')no-repeat;
-            background-size: cover;
         }
 
         .next {
@@ -183,7 +184,7 @@
         <p>注册</p>
     </div>
     <div class="Regist">
-        <div class="name"><span>姓名：</span><input type="text" name="" placeholder="请输入姓名"></div>
+        <div class="name"><span>&nbsp;姓&nbsp;名&nbsp;：</span><input type="text" name="" placeholder="请输入姓名"></div>
         <div class="phoneNum"><span>手机号：</span><input type="text" name="" placeholder="获取微信绑定的手机号或用户填写"></div>
         <span class="subject">报名科目:</span>
         <div class="subjectList">
@@ -215,6 +216,65 @@
        oNext.onclick=function(){
         window.location.href="vipselect.html"
        }
+    </script>
+     <script>
+        let oSubjectLis = document.querySelectorAll(".subjectList ul li"),
+            oSelectImgs = document.querySelectorAll(".subjectList ul div"),
+            oSelectednum = document.querySelector(".selectednum span");
+        (function addlist() {
+            for (let i = 0; i < oSubjectLis.length; i++) {
+                if (i == 0) {
+                    oSelectImgs[0].classList.add("select")
+                }
+                else {
+                    oSelectImgs[i].classList.add('notselect')
+                }
+            }
+        })();
+        var judge1 = true;
+        var judge2 = true;
+        oSubjectLis[0].onclick = function () {
+            if (judge1) {
+                oSelectImgs[0].classList.remove("select");
+                oSelectImgs[0].classList.add("unselect");
+                judge1 = false;
+            }
+            else {
+                oSelectImgs[0].classList.remove("unselect");
+                oSelectImgs[0].classList.add("select");
+                judge1 = true;
+            }
+        }
+        for (let i = 1; i < oSubjectLis.length; i++) {
+            oSubjectLis[i].index = i
+            oSubjectLis[i].onclick = function () {
+                if (judge2) {
+                    oSelectImgs[this.index].classList.remove("unselect")
+                    oSelectImgs[this.index].classList.add("select");
+                    judge2 = false;
+                }
+                else {
+                    oSelectImgs[this.index].classList.remove("select")
+                    oSelectImgs[this.index].classList.add("unselect");
+                    judge2 = true;
+                }
+            }
+        }
+        var oProtocolSelect=document.querySelector(".protocol div");
+        var judge3=true;
+        oProtocolSelect.classList.add("select")
+        oProtocolSelect.onclick = function () {
+            if (judge3) {
+                oProtocolSelect.classList.remove("select");
+                oProtocolSelect.classList.add("unselect");
+                judge3 = false;
+            }
+            else {
+                oProtocolSelect.classList.remove("unselect");
+                oProtocolSelect.classList.add("select");
+                judge3 = true;
+            }
+        }
     </script>
   
 </body>
