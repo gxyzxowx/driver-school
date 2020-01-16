@@ -7,7 +7,7 @@ gulp.task('webserver', function () {
       host: 'localhost',
       port: 8888,
       livereload: true, // 实时重新加载
-      open: './src/addexam.html', // 启动时默认浏览器打开的文件
+      open: './src/scoredetails.html', // 启动时默认浏览器打开的文件
       directoryListing: {
         enable: true,
         path: './'

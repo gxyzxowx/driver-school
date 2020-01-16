@@ -234,7 +234,7 @@
                 <li>100</li> -->
             </ul>
             <p class="finishsubmit">全部作答后才可提交。</p>
-            <button class="lastsubmit" :class="{acitve: percent}" @click="lastsubmit">提交</button>
+            <button class="lastsubmit" :class="{active: percent == 100.00}" @click="lastsubmit">提交</button>
         </div>
 
     </div>
@@ -257,6 +257,8 @@
             nextText: '下一题',
             // 是否为答题环境
             ifAnswering: true,
+            // 当前修改的题目
+            continueIndex: 0,
             // 题目总数
             total: 0,
             // 答题进度
@@ -369,8 +371,8 @@
                     }
                 }
                 // 答题进度
-                console.log(this.unAnswers.length)
-                console.log(1 - this.total)
+                // console.log(this.unAnswers.length)
+                // console.log(1 - this.total)
                 this.percent = ((1 - this.unAnswers.length/this.total ) *100).toFixed(2)
                 this.answerContent = arr
             },
@@ -380,6 +382,7 @@
                 if(type == 0){
                     // 不是第一轮做题，回到结算页面中
                     if(!this.ifFirst){
+                        this.datalist[this.continueIndex].ifshow = false
                         this.ifAnswering = false
                         // 计算未答题目页面
                     this.unAnswersFn()
@@ -402,17 +405,25 @@
             },
             // 提交或返回时  1提交，0返回
             submitFn: function(status){
+                console.log(this.answerContent)
+                console.log(this.numbers)
+                var test = [{'name': 'wendy'}]
+                var _this = this
                 Com.post('/index/index/index/answerSubmit', {
-                        answerContent: this.answerContent,
+                        answerContent: JSON.stringify(this.answerContent),
                         number: this.numbers,
                         status: status
                     }, function(rs){
-                        // 提交成功
+                        // 提交成功（status0保存，status1交卷）
+
                         if(status === 0){
-                            // 返回
-                            window.history.back(-1)
+                        // 返回
+                        window.history.back(-1)
+                        } else {
+                            // 交卷看解析
+                            window.location.href = './scoredetails.html?number=' + _this.numbers
                         }
-                        console.log(JSON.stringify(rs))
+
                     }, function (fail) {
                         alert(fail.message)
                     })
@@ -421,7 +432,8 @@
             continueAnswer: function (index) {
                 this.ifFirst = false
                 this.ifAnswering = true
-                this.datalist[index-1].ifshow = true
+                this.continueIndex = index-1
+                this.datalist[this.continueIndex].ifshow = true
             },
             // 结算页面提交
             lastsubmit: function(){

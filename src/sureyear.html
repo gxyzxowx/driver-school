@@ -121,29 +121,48 @@
 
 <body>
     <div class="StatusBar"></div>
-    <div class="top"><span></span>
+    <div class="top"><span onclick="Com.goback()"></span>
         <p>确认年份</p>
     </div>
-   
+   <div id="warp">
     <div class="listbar">
         <ul>
-            <li>
-                <div></div>2019年基础知识<span>开始答题</span><div></div>
-            </li>
-            <li>
-                <div></div>2018年基础知识<span>开始答题</span><div></div>
-            </li>
-            <li>
-                <div></div>2017年基础知识<span>开始答题</span><div></div>
-            </li>
-            <li>
-                <div></div>2016年基础知识<span>开始答题</span><div></div>
-            </li>
-            <li>
-                <div></div>2015年基础知识<span>开始答题</span><div></div>
+            <li v-for="(item, index) in datalist" :key="item.id" @click="beginAnswer(index)">
+                <div></div>{{item.name}}<span>开始答题</span><div></div>
             </li>
         </ul>
     </div>
+   </div>
+    <script src="../static/js/com.js"></script>
+    <script src="../static/js/vue.js"></script>
+    <script src="../static/js/axios.js"></script>
+    <script>
+        var Vue = new Vue({
+            el: '#warp',
+            data: {
+                keid: '',
+                datalist: []
+            },
+            mounted: function(){
+                this.keid = Com.getParams('id')
+                this.getData()
+            },
+            methods: {
+                getData: function(){
+                    var _this = this
+                    Com.get('/index/index/index/confirmationYear',{
+                        id: _this.keid
+                    },function(rs){
+                        _this.datalist = rs
+                    })
+                },
+                // 请求接口，看是否有权限答题
+                beginAnswer: function (index) {
+                    
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>

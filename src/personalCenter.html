@@ -186,23 +186,53 @@
     </div>
     <div class="listbar">
         <ul>
-            <li>
+            <li onclick="linkto(1)">
                 <div></div>我的科目<div></div>
             </li>
-            <li>
+            <li onclick="linkto(2)">
                 <div></div>新增考试<div></div>
             </li>
-            <li>
+            <li onclick="linkto(3)">
                 <div></div>历年真题<div></div>
             </li>
-            <li>
+            <li onclick="linkto(4)">
                 <div></div>考试记录<div></div>
             </li>
-            <li>
+            <li onclick="linkto(5)">
                 <div></div>星星兑换<div></div>
             </li>
         </ul>
     </div>
 </body>
+<script src="../static/js/com.js"></script>
+<script src="../static/js/vue.js"></script>
+<script src="../static/js/axios.js"></script>
+<script>
+    function linkto(type) {
+        switch (type) {
+            case 1:
+            window.location.href = './addexam.html'
+                break;
+            case 2:
+                // 新增考试
+            window.location.href = './addexam.html'
+                break;
+            case 3:
+                // 历年真题
+            window.location.href = './pastquestions.html'
+                break;
+            case 4:
+            window.location.href = './addexam.html'
+                break;
+            case 5:
+            window.location.href = './addexam.html'
+                break;
+
+            default:
+                break;
+        }
+        
+    }
+</script>
 
 </html>

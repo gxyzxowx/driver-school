@@ -110,23 +110,11 @@
             methods: {
                 getData: function(){
                     var _this = this
-                    axios.post('/index/index/index/confirmAccount', {
-                        params:{
+                    Com.post('/index/index/index/confirmAccount', {
                             id: this.keid
-                        }
-                    })
-                    .then(function (rs) {
-                    console.log(JSON.stringify(rs.data.data));
-                    var ret = rs.data
-                    if(ret.code === 0){
-                        _this.dataobj = ret.data
-                    }
-                    
-                    })
-                    .catch(function (error) {
-                    console.log(error);
-                    });
-
+                        },function(rs){
+                            _this.dataobj = rs
+                        })
                 },
                 beginTest: function(){
                     window.location.href = './answering.html?id=' + this.keid

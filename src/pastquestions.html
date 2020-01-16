@@ -113,26 +113,46 @@
 </head>
 
 <body>
-    <div class="StatusBar"></div>
-    <div class="top"><span></span>
-        <p>历年真题</p>
+    <div id="warp">
+        <div class="StatusBar"></div>
+        <div class="top"><span onclick="Com.goback()"></span>
+            <p>历年真题</p>
+        </div>
+        <div class="listbar">
+            <ul>
+                <li v-for="item in datalist" :key="item.id" @click="linkto(item.id)">
+                    <div></div>{{item.name}}<div></div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="listbar">
-        <ul>
-            <li>
-                <div></div>基础知识<div></div>
-            </li>
-            <li>
-                <div></div>专业知识<div></div>
-            </li>
-            <li>
-                <div></div>相关专业知识<div></div>
-            </li>
-            <li>
-                <div></div>专业实践能力<div></div>
-            </li>
-        </ul>
-    </div>
+    <script src="../static/js/com.js"></script>
+    <script src="../static/js/vue.js"></script>
+    <script src="../static/js/axios.js"></script>
+    <script>
+        var Vue = new Vue({
+            el: '#warp',
+            data: {
+                datalist: []
+            },
+            mounted: function(){
+                this.getData()
+            },
+            methods: {
+                getData: function(){
+                    var _this = this
+                    Com.get('/index/index/index/getSubject', {
+
+                    },function(rs){
+                        _this.datalist = rs
+                    })
+                },
+                linkto: function(_id){
+                    window.location.href = './sureyear.html?id=' + _id
+                }
+            }
+        })
+    </script>
 </body>
 
 </html>

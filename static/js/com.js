@@ -31,14 +31,13 @@ var Com = (function Module(){
   }
   var post = function(url, params, callback0, callback1){
     console.log(url, params)
-    axios.post(url, {
-      params: params
-    })
+    axios.post(url, params)
     .then(function(rs) {
         console.log(rs)
         // code为0处理一般成功情况
         if(rs.data.code === 0){
-          callback0(rs.data.data)
+          var result = rs.data.data? rs.data.data : ''
+          callback0(result)
         } else if(callback1){
           callback1(rs.data)  
         }

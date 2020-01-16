@@ -81,134 +81,274 @@
             list-style: none;
         }
         .detailist li{
-            width: .5rem;
-            height: .5rem;
+            width: .515rem;
+            height: .515rem;
             margin-right: .15rem;
-            border: solid .01rem rgba(153, 153, 153, 1);
+            border-radius: .05rem;
             text-align: center;
             line-height: .5rem;
             margin-top: .2rem;
-            background: rgb(10, 228, 10);
+            color: #fff;
+            background: #09BB07;
+        }
+        .detailist li.wrong{
+            background: #F76260;
         }
         .detailist li:first-child,.detailist li:nth-child(11),.detailist li:nth-child(21),.detailist li:nth-child(31),.detailist li:nth-child(41),.detailist li:nth-child(51),.detailist li:nth-child(61),.detailist li:nth-child(71),.detailist li:nth-child(81),.detailist li:nth-child(91){
             margin-left: .5rem;
         }
+/* 答案解析详情 */
+.questinsnum {
+            font-size: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            margin-top: .8rem;
+            margin-left: .5rem;
+        }
 
+        .questions {
+            font-size: .32rem;
+            line-height: .32rem;
+            margin-top: .25rem;
+            margin-left: .5rem;
+        }
+
+        .subjectList {
+            margin-left: 1.25rem;
+            margin-top: .38rem;
+        }
+
+        .subject {
+            padding-left: .23rem;
+            width: 1.3rem;
+            line-height: 1rem;
+            font-size: .32rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(102, 102, 102, 1);
+        }
+
+        .subjectList ul li {
+            /* height: .31rem; */
+            margin-bottom: .31rem;
+            width: 100%;
+            font-size: .32rem;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            line-height: .34rem;
+            position: relative;
+            text-indent: .7rem;
+        }
+
+        .subjectList ul li div {
+            width: .32rem;
+            height: .32rem;
+            position: absolute;
+            left: .2rem;
+            top: .03rem;
+        }
+
+        .subjectList ul li.active div {
+            background: url('../static/img/inicon .png')no-repeat;
+            background-size: cover;
+        }
+
+        .subjectList ul li div {
+            background: url('../static/img/unselect.png')no-repeat;
+            background-size: cover;
+        }
+        .answer {
+            font-size: .32rem;
+            height: .32rem;
+            line-height: .32rem;
+            margin-top: 1.2rem;
+            margin-left: .5rem;
+        }
+
+        .option {
+            font-size: .32rem;
+            height: .54rem;
+            line-height: .54rem;
+            margin-top: .1rem;
+            margin-left: .5rem;
+            width: 6.2rem;
+        }
+
+        .previous {
+            margin-left: .9rem;
+        }
+
+        .previous,
+        .next {
+            width: 2.3rem;
+            height: .8rem;
+            margin-top: 2.6rem;
+            border: none;
+            font-size: .34rem;
+        }
+
+        .next {
+            margin-left: 1.2rem;
+        }
     </style>
 </head>
 
 <body>
-    <div class="StatusBar"></div>
-    <div class="top"><span></span>
-        <p>得分详情</p>
-    </div>
-    <p class="project">科目：<span>基础知识</span></p>
-    <p class="score">得分：<span>87</span>分</p>
-    <p class="level">等级：<span>良好</span></p>
-    <p class="scoredetail">得分详情：<span>点击题号查看详情</span></p>
-    <ul class="detailist">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
+    <div id="warp">
+        <div class="listpage" v-show="ifList">
+            <div class="StatusBar"></div>
+            <div class="top"><span @click="backAddExam"></span>
+                <p>得分详情</p>
+            </div>
         
-    </ul>
+            <p class="project">科目：<span>{{subject_name}}</span></p>
+            <p class="score">得分：{{fraction}}</p>
+            <p class="scoredetail">得分详情：<span>点击题号查看详情</span></p>
+            <ul class="detailist">
+                <li v-for="(item, index) in details" :class="{wrong: !item.result}" :key="item.id" @click="getDetails(index)">{{index + 1}}</li>
+            </ul>
+        </div>
+        <div class="analysispage"  v-show="!ifList">
+            <div class="StatusBar"></div>
+            <div class="top"><span @click="ifList = !ifList"></span>
+                <p>答案解析</p>
+            </div>
+            <p class="questinsnum">第<span>{{currentIndex}}</span>题：</p>
+            <p class="questions">{{rsData.title}}</p>
+            <div class="subjectList">
+                <ul>
+                    <li :class="{active: answer ==='A'}">
+                        <div></div>A.{{rsData.a}}
+                    </li>
+                    <li :class="{active: answer ==='B'}">
+                        <div></div>B.{{rsData.b}}
+                    </li>
+                    <li :class="{active: answer ==='C'}">
+                        <div></div>C.{{rsData.c}}
+                    </li>
+                    <li :class="{active: answer ==='D'}">
+                        <div></div>D.{{rsData.d}}
+                    </li>
+                    <li :class="{active: answer ==='E'}">
+                        <div></div>E.{{rsData.e}}
+                    </li>
+                </ul>
+            </div>
+            <p class="answer">答案解析：</p>
+            <p class="option"><span>{{rsData.correct_answer}}</span>。{{rsData.resolve}}</p>
+            <button class="previous" @click="previous">上一题</button><button class="next" @click="next">下一题</button>
+        </div>
+        
+    </div>
+    <script src="../static/js/com.js"></script>
+    <script src="../static/js/vue.js"></script>
+    <script src="../static/js/axios.js"></script>
+    <script>
+        var Vue = new Vue({
+            el: "#warp",
+            data: {
+                // 试卷唯一标识
+                number: '',
+                ifList: true,
+                subject_name: '',
+                fraction: '',
+                details: [],
+                // 当前查看的解析序号,从1开始
+                currentIndex: 0,
+                // 得到的解析数据
+                rsData: {},
+                // 我的答案
+                answer: ''
+            },
+            mounted: function () {
+                this.number = Com.getParams('number')
+                this.getDatalist()
+            },
+            methods: {
+                getDatalist: function () {
+                    var _this = this
+                    Com.get('/index/index/index/scoreDetails',{
+                        number: _this.number
+                    },function(rs){
+                        _this.subject_name = rs.subject_name
+                        _this.fraction = rs.fraction
+                        _this.details = rs.details
+                    })
+                    // 测试数据
+            //         this.details = [
+            // {
+            //     "id":1311,
+            //     "answer":"C",
+            //     "result":0
+            // },
+            // {
+            //     "id":1439,
+            //     "answer":"C",
+            //     "result":1
+            // },
+            // {
+            //     "id":1447,
+            //     "answer":"D",
+            //     "result":0
+            // },
+            // {
+            //     "id":1307,
+            //     "answer":"E",
+            //     "result":0
+            // },
+            // {
+            //     "id":1484,
+            //     "answer":"E",
+            //     "result":1
+            // }
+        // ]
+        // 测试数据结束
+        
+                },
+                getDetails: function(index){
+                    // console.log(index)
+                    if( this.details[index] ){
+                    this.rsData = {}
+                    
+                    var _id = this.details[index].id
+                    var _answer = this.details[index].answer
+                    console.log(_id)
+                    
+                        this.ifList = false
+                    // 请求接口 详情
+                    var _this = this
+                    Com.get('/index/index/index/answerAnalysis',{
+                        id: _id,
+                        answer: _answer
+                    },function(rs){
+                        console.log(rs)
+                        _this.currentIndex = index + 1
+                        _this.rsData = rs.bank
+                        _this.answer = rs.answer
+                    })
+                    } else {
+                        alert('没有更多了。')
+                        return
+                    }
+                    
+                },
+                // 上一题
+                previous: function(){
+                    var _index = this.currentIndex - 1 - 1
+                    this.getDetails(_index)
+                },
+                //下一题
+                next: function(){
+                    var _index = this.currentIndex - 1 + 1
+                    this.getDetails(_index)
+                },
+                // 回到增加开始页面
+                backAddExam: function (params) {
+                    window.location.href = './addexam.html'
+                }
+            }
+        })
+    </script>
 </body>
-
 </html>
