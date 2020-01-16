@@ -10,7 +10,7 @@
     <style>
         body {
             font-size: .26rem;
-            background: rgba(247, 247, 247, 1)
+            background: rgba(247, 247, 247, 1);
         }
 
         * {
@@ -51,6 +51,7 @@
             width: .3rem;
             height: .3rem;
         }
+
         .listbar {
             height: 4.4rem;
             width: 100%;
@@ -108,23 +109,161 @@
             right: .2rem;
             bottom: .34rem;
         }
-        .listbar ul li span{
+
+        .listbar ul li span {
             position: absolute;
             right: .6rem;
             bottom: 0rem;
         }
-        .mystar{
+
+        .mystar {
             margin-top: .6rem;
         }
-        .mystar,.exchangeprice{
+
+        .mystar,
+        .exchangeprice {
             font-size: .3rem;
             height: .3rem;
             line-height: .3rem;
             width: 100%;
             text-indent: .6rem;
         }
-        .exchangeprice{
+
+        .exchangeprice {
             margin-top: .5rem;
+        }
+
+        .weui-mask {
+            background: rgba(0, 0, 0, 0.6)
+        }
+
+        .weui-mask,
+        .weui-mask_transparent {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0
+        }
+
+        .dialog {
+            width: 6.4rem;
+            margin: 0 auto;
+        }
+
+        .hd {
+            padding: .7rem 0 .5rem;
+            text-align: center;
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: .34rem;
+            line-height: .34rem;
+        }
+
+        .bd {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 24px;
+            margin-bottom: .32rem;
+            font-size: .32rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+            color: rgba(0, 0, 0, 0.5);
+            height: 1.2rem;
+        }
+
+        .bd:first-child,
+        .ft {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .ft {
+            position: relative;
+            line-height: 56px;
+            min-height: 56px;
+            font-size: 17px
+        }
+
+        .ft:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 1px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: rgba(0, 0, 0, 0.1);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5)
+        }
+
+        .alert {
+            position: absolute;
+            left: .575rem;
+            top: 4.46rem;
+            width: 6.38rem;
+            height: 4.27rem;
+            background: rgba(255, 255, 255, 1);
+            border-radius: .25rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        .auxiliary {
+            color: black;
+            border-bottom-left-radius: .25rem;
+            width: 3.2rem;
+        }
+
+        .auxiliary,
+        .main {
+            height: 1.2rem;
+            text-align: center;
+            line-height: 1.2rem;
+            font-size: .32rem;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+        }
+        .auxiliary:active {
+            background-color: #ececec;
+        } 
+        .main::after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: .3rem;
+            bottom: 0;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+            color: rgba(0, 0, 0, 0.1);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scaleX(0.5);
+            transform: scaleX(0.5)
+        }
+
+        .main:active{
+            background-color: #ececec;
+        }
+        .main {
+            color: #576b95;
+            border-bottom-right-radius: .25rem;
+            width: 3.18rem;
         }
     </style>
 </head>
@@ -136,23 +275,59 @@
     </div>
     <p class="mystar">我的星星：<span>5</span>颗</p>
     <p class="exchangeprice">兑换价格：<span>10</span>颗/次</p>
-   
     <div class="listbar">
         <ul>
             <li>
-                <div></div>基础知识<span>兑换</span><div></div>
+                <div></div>基础知识<span>兑换</span>
+                <div></div>
             </li>
             <li>
-                <div></div>专业知识<span>兑换</span><div></div>
+                <div></div>专业知识<span>兑换</span>
+                <div></div>
             </li>
             <li>
-                <div></div>相关专业知识<span>兑换</span><div></div>
+                <div></div>相关专业知识<span>兑换</span>
+                <div></div>
             </li>
             <li>
-                <div></div>专业实践能力<span>未开通</span><div></div>
+                <div></div>专业实践能力<span>未开通</span>
+                <div></div>
             </li>
         </ul>
     </div>
+    <div class="weui-mask">
+        <div class="alert">
+            <div class="dialog">
+                <div class="hd"><strong class="title">弹窗标题</strong></div>
+                <div class="bd">弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内</div>
+                <div class="ft">
+                    <a href="javascript:;" class="auxiliary">辅助操作</a>
+                    <a href="javascript:;" class="main">主操作</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var oExchanges = document.querySelectorAll(".listbar ul li span");
+        let oMask = document.querySelector(".weui-mask"),
+            oAlert = document.querySelector(".alert"),
+            oAuxiliary = document.querySelector(".auxiliary"),
+            oMain = document.querySelector(".main");
+        for (let i = 0; i < oExchanges.length; i++) {
+            oExchanges[i].onclick = function () {
+                oMask.style.display = "block";
+                oAlert.style.display = "block"; 
+            }
+        }
+        oAuxiliary.onclick = function () {
+            oMask.style.display = "none";
+            oAlert.style.display = "none";
+        }
+        oMain.onclick = function () {
+            oMask.style.display = "none";
+            oAlert.style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

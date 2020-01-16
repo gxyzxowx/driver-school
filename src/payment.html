@@ -220,6 +220,7 @@
         </div>
     </div>
     <div><button class="Previous">上一步</button><button class="payment">确认付费</button></div>
+    <script src="../static/js/com.js"></script>
     <script>
         let oSubjectLis = document.querySelectorAll(".subjectList ul li"),
             oSelectImgs = document.querySelectorAll(".subjectList ul div"),
@@ -292,13 +293,13 @@
         }
         let oViplevel = document.querySelector(".viplevel p"),
             oCost = document.querySelector(".cost p");
-        var para = window.location.search;
-        if (para == "?putonghuiyuan") {
+            var Num = Com.getParams('id')
+        if (Num==0) {
             oViplevel.innerHTML = "普通会员";
             oCost.innerHTML = "￥199";
             let price = 199;
         }
-        if (para == "?gaojihuiyuan") {
+        if (Num==1) {
             oViplevel.innerHTML = "高级会员";
             oCost.innerHTML = "￥699";
         }

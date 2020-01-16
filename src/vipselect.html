@@ -161,6 +161,9 @@
             text-align: center;
             line-height: .88rem;
         }
+        #anext{
+            text-decoration: none;
+        }
         .next-step {
             border-radius: .5rem;
             background: linear-gradient(90deg, rgba(106, 228, 233, 1), rgba(101, 207, 232, 1));
@@ -209,7 +212,7 @@
     </div>
     <div>
         <button class="Previous">上一步</button>
-        <button class="next-step"><a href="payment.html?aaddfgg" id="anext">下一步</a></button>
+        <button class="next-step"><a href="payment.html?" id="anext">下一步</a></button>
     </div>
     <script>
         let oSelebtnnormal = document.querySelector(".selebtnnormal"),
@@ -234,12 +237,12 @@
             window.location.href = "login.html"
         }
         let oAnext=document.querySelector("#anext");
-         oAnext.onclick=function(){
+        oAnext.onclick=function(){
              if(oSelebtnnormal.classList.contains('select')){
-                oAnext.href="payment.html?putonghuiyuan"
+                oAnext.href="payment.html?id=0"
              }
              else{
-                oAnext.href="payment.html?gaojihuiyuan"
+                oAnext.href="payment.html?id=1"
              }
          }
     </script>
