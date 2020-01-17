@@ -14,7 +14,7 @@ gulp.task('webserver', function () {
       },
       proxies: [{
         source: '/index',
-        target: 'http://dp.yuchaosheng.com' // 代理的域名
+        target: 'http://dp.yuchaosheng.com/api/v1/' // 代理的域名
       }]
     }))
 });

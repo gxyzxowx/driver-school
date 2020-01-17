@@ -251,6 +251,7 @@
             //  科目id
             keid: '',
             // 传后端的number
+            // 继续答题时number从上一页截取
             numbers: '',
             datalist: [
             ],
@@ -269,16 +270,24 @@
          },
          mounted: function() {
              this.keid = parseInt(Com.getParams('id'))
-             this.getData()
+             this.numbers = parseInt(Com.getParams('number'))
+             if(this.numbers){
+                //  是考试记录中继续答题
+                 this.getContinueData(this.numbers)
+                 
+             } else{
+                this.getData()
+             }
+            
 
-             history.pushState(null, null, "#");   
-window.onpopstate = function(){alert(12);return false;};
+//              history.pushState(null, null, "#");   
+// window.onpopstate = function(){alert(12);return false;};
          },
          methods: {
              
             getData: function(){
                 var _this = this
-                Com.get('/index/index/index/startExam',{
+                Com.get('/index/startExam',{
                    id: this.keid 
                 },
                 function(ret){
@@ -304,6 +313,15 @@ window.onpopstate = function(){alert(12);return false;};
                 })
 
             },
+            // 是考试记录中继续答题
+            getContinueData: function (number) {
+                Com.post('/index/continueAnswer', {
+                    number: number
+                }, function(rs) {
+                    console.log(JSON.stringify(rs))
+                })
+            },
+
             // 点击变色传值
             selectOne: function(index_ti, index_xuan){
                 // 判断是否为单选题
@@ -415,7 +433,7 @@ window.onpopstate = function(){alert(12);return false;};
                 console.log(this.numbers)
                 var test = [{'name': 'wendy'}]
                 var _this = this
-                Com.post('/index/index/index/answerSubmit', {
+                Com.post('/index/answerSubmit', {
                         answerContent: JSON.stringify(this.answerContent),
                         number: this.numbers,
                         status: status

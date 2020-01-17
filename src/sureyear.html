@@ -150,7 +150,7 @@
             methods: {
                 getData: function(){
                     var _this = this
-                    Com.get('/index/index/index/confirmationYear',{
+                    Com.get('/index/confirmationYear',{
                         id: _this.keid
                     },function(rs){
                         _this.datalist = rs
@@ -159,7 +159,7 @@
                 // 请求接口，看是否有权限答题
                 beginAnswer: function (index) {
                     var _this = this
-                    Com.get('/index/index/index/startAnswering',{
+                    Com.get('/index/startAnswering',{
                         id: 2001,
                         subject_id:2,
                         // id: _this.datalist[index].id,

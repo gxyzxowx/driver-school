@@ -155,7 +155,7 @@
             methods: {
                 getData: function () {
                     var _this = this
-                    axios.get('/index/index/index/addExam', {})
+                    axios.get('/index/addExam', {})
                         .then(function (rs) {
                             console.log(JSON.stringify(rs.data.data));
                             var ret = rs.data
