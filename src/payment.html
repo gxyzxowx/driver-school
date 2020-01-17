@@ -52,7 +52,7 @@
         }
 
         .Previous {
-            margin: .52rem;
+            margin-left: .64rem;
             background: linear-gradient(90deg, rgba(191, 191, 191, 1), rgba(210, 212, 212, 1));
             margin-top: 3.16rem;
         }
@@ -68,6 +68,7 @@
 
         .payment {
             background: linear-gradient(90deg, rgba(106, 228, 233, 1), rgba(101, 207, 232, 1));
+            margin-left: .5rem;
         }
 
 
@@ -227,12 +228,8 @@
             oSelectednum = document.querySelector(".selectednum span");
         (function addlist() {
             for (let i = 0; i < oSubjectLis.length; i++) {
-                if (i == 0) {
-                    oSelectImgs[0].classList.add("select")
-                }
-                else {
+             
                     oSelectImgs[i].classList.add('notselect')
-                }
             }
         })();
         var judge1 = true;
@@ -293,15 +290,25 @@
         }
         let oViplevel = document.querySelector(".viplevel p"),
             oCost = document.querySelector(".cost p");
-            var Num = Com.getParams('id')
-        if (Num==0) {
+        var para = window.location.search;
+            var num=parseInt(para.substring(4));
+           var newArr=para.split("&");
+             let oName=document.querySelector(".name span");
+              oName.innerHTML=decodeURI(newArr[newArr.length-1]);
+              selectIndex=newArr[newArr.length-2].split('');
+              for(let j=0;j<oSubjectLis.length;j++){
+                oSelectImgs[j].classList.remove("unselect");
+                }
+              for(let i=0;i<selectIndex.length;i++){
+                    oSelectImgs[selectIndex[i]].classList.add("select");
+              }
+        if (num==0) {
             oViplevel.innerHTML = "普通会员";
-            oCost.innerHTML = "￥199";
-            let price = 199;
+            oCost.innerHTML = "￥"+selectIndex.length*199;
         }
-        if (Num==1) {
+        if (num==1) {
             oViplevel.innerHTML = "高级会员";
-            oCost.innerHTML = "￥699";
+            oCost.innerHTML = "￥"+selectIndex.length*699;
         }
     </script>
 </body>
