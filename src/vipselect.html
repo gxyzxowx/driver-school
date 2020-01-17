@@ -149,7 +149,7 @@
             border-radius: .65rem;
             background: linear-gradient(90deg, rgba(191, 191, 191, 1), rgba(210, 212, 212, 1));
             margin-top: 1.2rem;
-            margin-left: .62rem;
+            margin-left: .53rem;
         }
 
         .Previous,
@@ -237,12 +237,13 @@
             window.location.href = "login.html"
         }
         let oAnext=document.querySelector("#anext");
+        var para = window.location.search;
         oAnext.onclick=function(){
              if(oSelebtnnormal.classList.contains('select')){
-                oAnext.href="payment.html?id=0"
+                oAnext.href="payment.html?id=0"+para
              }
              else{
-                oAnext.href="payment.html?id=1"
+                oAnext.href="payment.html?id=1"+para
              }
          }
     </script>

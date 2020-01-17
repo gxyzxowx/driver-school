@@ -71,13 +71,14 @@
 
         .name span,
         .phoneNum span {
-
             font-size: .3rem;
             font-family: Source Han Sans CN;
             font-weight: 400;
             color: rgba(102, 102, 102, 1);
+        }
 
-
+        .name span {
+            padding-left: .08rem;
         }
 
         .name input,
@@ -90,6 +91,12 @@
             width: 4.5rem;
             padding-left: .24rem;
         }
+
+        .name input:focus,
+        .phoneNum input:focus {
+            outline: medium;
+        }
+
 
         .subjectList {
             margin-left: 1.73rem;
@@ -145,7 +152,7 @@
 
         .protocol {
             height: .32rem;
-            margin-top: 4.36rem;
+            margin-top: 4.6rem;
             margin-left: 1.84rem;
             font-size: .24rem;
             font-family: Source Han Sans CN;
@@ -167,17 +174,27 @@
         .next {
             width: 2.88rem;
             height: .88rem;
-            margin: .52rem .65rem;
             border-radius: .5rem;
             border: none;
             background: linear-gradient(90deg, rgba(106, 228, 233, 1), rgba(101, 207, 232, 1));
             color: #FFFFFF;
-            margin-top: .34rem;
+            margin-top: .44rem;
             margin-left: 2.35rem;
         }
 
         .protocol span {
             color: #6AE4E9;
+        }
+
+        #Next {
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        .disable {
+            pointer-events: none;
+            color: #afafaf;
+            cursor: default
         }
     </style>
 </head>
@@ -188,7 +205,7 @@
         <p>注册</p>
     </div>
     <div class="Regist">
-        <div class="name"><span>&nbsp;姓&nbsp;名&nbsp;：</span><input type="text" name="" placeholder="请输入姓名"></div>
+        <div class="name"><span>姓&nbsp;&nbsp;&nbsp;名：</span><input type="text" name="" placeholder="请输入姓名"></div>
         <div class="phoneNum"><span>手机号：</span><input type="text" name="" placeholder="获取微信绑定的手机号或用户填写"></div>
         <span class="subject">报名科目:</span>
         <div class="subjectList">
@@ -213,13 +230,7 @@
         登录即表示同意<span>《用户隐私协议》</span>
     </div>
 
-    <div><button class="next">下一步</button></div>
-    <script>
-        let oNext = document.querySelector(".next");
-        oNext.onclick = function () {
-            window.location.href = "vipselect.html"
-        }
-    </script>
+    <div><button class="next"><a href="vipselect.html?" id="Next">下一步</a></button></div>
     <script>
         let oSubjectLis = document.querySelectorAll(".subjectList ul li"),
             oSelectImgs = document.querySelectorAll(".subjectList ul div"),
@@ -271,12 +282,25 @@
                 oProtocolSelect.classList.remove("select");
                 oProtocolSelect.classList.add("unselect");
                 judge3 = false;
+                oNextA.classList.add('disable')
             }
             else {
                 oProtocolSelect.classList.remove("unselect");
                 oProtocolSelect.classList.add("select");
                 judge3 = true;
+                oNextA.classList.remove('disable')
             }
+        }
+        let oNextA = document.querySelector("#Next"),
+            oNameInput = document.querySelector(".name input")
+        oNextA.onclick = function () {
+            var index = '';
+            for (let j = 0; j < oSubjectLis.length; j++) {
+                if (oSelectImgs[j].classList.contains("select")) {
+                    index += j
+                }
+            }
+            oNextA.href = "vipselect.html?&" + index + "&" + oNameInput.value;
         }
     </script>
 </body>
