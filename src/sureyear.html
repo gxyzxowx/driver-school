@@ -158,7 +158,18 @@
                 },
                 // 请求接口，看是否有权限答题
                 beginAnswer: function (index) {
-                    
+                    var _this = this
+                    Com.get('/index/index/index/startAnswering',{
+                        id: 2001,
+                        subject_id:2,
+                        // id: _this.datalist[index].id,
+                        // subject_id: _this.datalist[index].subject_id
+                    },function(rs){
+                        console.log(rs)
+                        window.location.href = './answering.html?id=' + 2
+                    },function(fail){
+                        alert(fail.message)
+                    })
                 }
             }
         })

@@ -9,7 +9,7 @@ var Com = (function Module(){
     if (r != null) return unescape(r[2]);
     return null;
   }
-  // 网络请求
+  // 网络请求get
   var get = function(url, params, callback0, callback1){
     console.log(url, params)
     axios.get(url, {
@@ -29,6 +29,7 @@ var Com = (function Module(){
       console.log(error);
     })
   }
+   // 网络请求post
   var post = function(url, params, callback0, callback1){
     console.log(url, params)
     axios.post(url, params)
@@ -47,11 +48,32 @@ var Com = (function Module(){
       console.log(error);
     })
   }
+
+  var dialog = function(text){
+    
+    if(document.querySelector('.com-mask')){
+      document.querySelector('.com-mask').style.display= 'block'
+      }else {
+        var loadingstr = '<div class="mask com-mask"><div class="alert"><div class="dialog"><div class="hd"><strong class="title">提示</strong></div><div class="bd">' + text + '</div><div class="ft"><div class="sure" onclick="Com._dialogClose()">确定</div></div></div></div></div>'
+        document.body.insertAdjacentHTML('beforeend', loadingstr)
+      }
+        
+        // {return document.querySelector('.com-mask')}
+
+        
+  }
+
+  var _dialogClose=function(){
+    document.querySelector('.com-mask').style.display= 'none'
+  }
+
   var module = {
     goback: goback,
     getParams: getParams,
     get: get,
-    post: post
+    post: post,
+    dialog: dialog,
+    _dialogClose: _dialogClose
   }
   return module
 }())

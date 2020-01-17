@@ -243,6 +243,8 @@
  <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
  <script src="../static/js/com.js"></script>
  <script>
+
+
      var Vue = new Vue({
          el: '#warp',
          data: {
@@ -268,6 +270,9 @@
          mounted: function() {
              this.keid = parseInt(Com.getParams('id'))
              this.getData()
+
+             history.pushState(null, null, "#");   
+window.onpopstate = function(){alert(12);return false;};
          },
          methods: {
              
@@ -380,7 +385,7 @@
             goback: function(type){
                
                 if(type == 0){
-                    // 不是第一轮做题，回到结算页面中
+                    // !this.ifFirst不是第一轮做题，回到结算页面中
                     if(!this.ifFirst){
                         this.datalist[this.continueIndex].ifshow = false
                         this.ifAnswering = false
@@ -388,12 +393,13 @@
                     this.unAnswersFn()
                     } else {
                         // 是第一轮做题，保存离开
+                        this.unAnswersFn()
                         this.submitFn(0)
                     }
 
 
                 } else{
-                    // 是第一轮做题，保存离开
+                    // 结算的返回，保存离开
                     this.submitFn(0)
                 }
                 

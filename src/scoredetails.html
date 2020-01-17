@@ -198,7 +198,7 @@
 
         .mask,
         .mask_transparent {
-            display: none;
+            /* display: none; */
             position: fixed;
             z-index: 100;
             top: 0;
@@ -283,7 +283,7 @@
             background: rgba(255, 255, 255, 1);
             border-radius: .1rem;
             z-index: 1000;
-            display: none;
+            /* display: none; */
         }
         .sure {
             height: 1.02rem;
@@ -301,6 +301,7 @@
         .sure:active {
             background-color: #ececec;
         } 
+
     </style>
 </head>
 <body>
@@ -350,17 +351,17 @@
         </div>
         
     </div>
-    <div class="mask">
+    <!-- <div class="mask com-mask">
         <div class="alert">
             <div class="dialog">
                 <div class="hd"><strong class="title">提示</strong></div>
-                <div class="bd">没有更多了。aaadd</div>
+                <div class="bd" id="dialogText">没有更多了。aaadd</div>
                 <div class="ft">
-                    <a href="javascript:;" class="sure">确定</a>
+                    <div class="sure">确定</div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="../static/js/com.js"></script>
     <script src="../static/js/vue.js"></script>
     <script src="../static/js/axios.js"></script>
@@ -448,8 +449,8 @@
                         _this.answer = rs.answer
                     })
                     } else {
-                        var  index='没有更多了。'
-                        alert(index)
+                        
+                        Com.dialog('没有更多了')
                         return
                     }
                     
@@ -485,8 +486,8 @@
         // }
 
         //代替alert执行一次
-        var  index='没有更多了。'
-          alert(index)
+        // var  index='没有更多了。'
+        //   alert(index)
     </script>
 </body>
 </html>

@@ -110,7 +110,7 @@
             methods: {
                 getData: function(){
                     var _this = this
-                    Com.post('/index/index/index/confirmAccount', {
+                    Com.get('/index/index/index/confirmAccount', {
                             id: this.keid
                         },function(rs){
                             _this.dataobj = rs
